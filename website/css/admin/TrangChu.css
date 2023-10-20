@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+/*Trang chu*/
+.KhungChinAdmin{
+    display: grid;
+    grid-template-areas: 
+    "KhuI KhuII KhuII";
+}
+.CotHienThiChucNang{
+    grid-area: KhuI;
+    background-color: rgb(38, 36, 36);
+    height: 100vh;
+    color: rgb(214, 220, 224);
+    font-family: Arial;
+}
+.CotHienThiThongTin{
+    grid-area: KhuII;
+    width: 55vw;
+}
+.NutAdmin{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 550;
+    margin: 2vw 0 3vw 0;
+}
+.NutChung{
+    font-size: 1.25em;
+    width: 100%;
+     
+}
+.NutChung:hover{
+    border: 1px black solid;
+}

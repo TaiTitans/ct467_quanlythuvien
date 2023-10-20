@@ -3,7 +3,7 @@
 const express = require('express')
 const router = express.Router()
 
-// router.get('', (req,res,next)=>{
+// router.get('/test', (req,res,next)=>{
 //     return res.status(200).json({
 //         message: 'Welcome'
 //     })
