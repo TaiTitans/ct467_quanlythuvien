@@ -12,13 +12,16 @@
 .CotHienThiChucNang{
     grid-area: KhuI;
     background-color: rgb(38, 36, 36);
-    height: 100vh;
+    height: 100vmax;
     color: rgb(214, 220, 224);
     font-family: Arial;
 }
 .CotHienThiThongTin{
     grid-area: KhuII;
     width: 55vw;
+}
+#DanhSachTinhTrangSach{
+    text-align: center;
 }
 .NutAdmin{
     text-align: center;
@@ -29,8 +32,12 @@
 .NutChung{
     font-size: 1.25em;
     width: 100%;
-     
+    padding: 2vw;
+
 }
 .NutChung:hover{
-    border: 1px black solid;
+    background-color: rgb(6, 135, 248);
+}
+.NutXemTinhTrang{
+    width: 100%;
 }
