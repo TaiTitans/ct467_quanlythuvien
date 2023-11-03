@@ -51,3 +51,10 @@
     border-bottom-right-radius: 8px;
 }
 
+.user-menu {
+    display: none;
+  }
+
+.user-menu:not(.hidden) {
+    display: block;
+  }
