@@ -26,6 +26,11 @@
         <!--CSS-->
         <link rel="stylesheet" href="../../../css/Sach/sach.css">
         <link rel="stylesheet" href="../../../css/TrangDungChung/TrangDungChung.css">        
+        <!--PHP-->
+        <?php
+            include('../../../php/ConnectMySQL.php');
+            include('../../../php/CacHamXuLy.php');
+        ?>
     </head>
     <body>
         <header></header>
@@ -69,8 +74,12 @@
                         <tr>
                             <td colspan="2">
                                 <label>Thể loại</label>
+                                
                                 <div class="ODienThongTin">
                                     <input type="text"  placeholder="Thể loại sách">
+                                    <?php
+
+                                    ?>
                                 </div>
                             </td>
                         </tr>
@@ -95,22 +104,6 @@
             </div>
         </main>
         <footer>
-            <div class="ChanBenPhai">
-                <p>&copy; <span id="NamHienTai"></span></p>
-                <p>
-                    Khoa Khoa Học Máy Tính - Trường Công Nghệ Thông Tin & Truyền Thông, Đại Học Cần Thơ 
-                </p>                
-            </div>
-            <div class="ChanBenTrai">
-                <div class="ChanTrai1">
-                    <p>Địa chỉ: phường Xuân Khánh,đường 3/2, Quận Ninh Kiều, TP Cần Thơ</p>
-                    <span>&phone; : </span>
-                </div>
-                <div class="ChanTrai2">
-                    <p>Email: abcd123@gmail.com</p>
-                    <p>Website: </p>
-                </div>
-            </div>
         </footer>
     </body>
 </html>

@@ -130,4 +130,12 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien);
     }
+
+    //12. Thông báo thành công và thoát ra
+    function ThucHienThanhCong(){
+        echo '<script>
+                alert("Thực hiện thành công");
+                history.back();
+            </script>';
+    }
 ?>

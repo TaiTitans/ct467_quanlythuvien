@@ -68,3 +68,8 @@
     font-size: 20px;
     margin-left: 20px;
   }
+
+.footer_css {
+    bottom: 0;
+    width: 100%;
+  }
