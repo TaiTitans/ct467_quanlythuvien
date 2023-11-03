@@ -41,3 +41,13 @@
 .NutXemTinhTrang{
     width: 100%;
 }
+/*Tắt trang hiển thị nhân viên, Khung sachs*/
+.KhungNhanVien, .KhungSach,.KhungChuaMuon,.KhungDaMuon,.KhungQuaHan,.KhungHong,.KhungMat{
+    display: none;
+}
+.TatKhung{
+    display: none;
+}
+.HienThiKhung{
+    display: block;
+}
