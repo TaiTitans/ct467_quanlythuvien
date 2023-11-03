@@ -25,7 +25,7 @@
         <!--Script-->
         <script src="../../nodejs/public/ConnectMySQL.js" async></script>
         <!--CSS-->
-        <link rel="stylesheet" href="../../css/admin/TrangChu.css">
+        
         <!--PHP-->
         <?php
             include('../../php/ConnectMySQL.php');
@@ -33,7 +33,9 @@
         ?>
     </head>
     <body>
-        <header></header>
+        <header>
+
+        </header>
         <main>
             <div class="KhungChinAdmin">
                 <div class="CotHienThiChucNang">
@@ -57,14 +59,19 @@
                         Đọc giả
                     -->
                     <div class="khungDocGia">
+                        <div class="KhungChung">
+
+                        </div>
                         <table>
-                            <tr>
+                            <tr class="TieuDeBang">
                                 <th>UserID/Mã đọc giả</th>
                                 <th>Họ tên</th>
                                 <th>Giới tính</th>
                                 <th>Ngày sinh</th>
                                 <th>Số điện thoại</th>
                                 <th>Mật khẩu</th>
+                                <th>Delete</th>
+                                <th>Cập nhật</th>
                             </tr>
                             <?php
                                 $TTdocGia = infDocGia();
@@ -76,11 +83,17 @@
                                             <td>'.$row['ngaySinh'].'</td>
                                             <td>'.$row['SDT'].'</td>
                                             <td>'.$row['MatKhau'].'</td>
+                                            <td>
+                                                <a href="###" ><i class="fa-solid fa-trash"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                            </td>
                                         </tr>';
                                 }
+
                             ?>
                         </table>
-                        
                     </div>
                     <!--
                         Nhân viên

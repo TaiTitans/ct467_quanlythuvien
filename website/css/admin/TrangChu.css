@@ -3,11 +3,30 @@
     padding: 0;
     border: 0;
 }
+table{
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 1.15em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+td{
+    border: 1px rgb(153, 153, 153) solid;
+}
+th{
+    border: 2px solid #fff;
+}
+table tr:nth-child(odd){
+    background-color: rgb(244, 249, 224);
+}
+tr td{
+    padding: 0.5vw 1vw 0.5vw 1vw;
+}
 /*Trang chu*/
 .KhungChinAdmin{
     display: grid;
     grid-template-areas: 
     "KhuI KhuII KhuII";
+    
 }
 .CotHienThiChucNang{
     grid-area: KhuI;
@@ -15,10 +34,12 @@
     height: 100vmax;
     color: rgb(214, 220, 224);
     font-family: Arial;
+    z-index: 1;
 }
 .CotHienThiThongTin{
     grid-area: KhuII;
     width: 55vw;
+    z-index: 0;
 }
 #DanhSachTinhTrangSach{
     text-align: center;
@@ -41,6 +62,11 @@
 .NutXemTinhTrang{
     width: 100%;
 }
+.TieuDeBang th{
+    background-color: rgb(24, 25, 25);
+    color: #eee;
+    padding: 1vw 0.5vw 1vw 0.5vw;
+}
 /*Tắt trang hiển thị nhân viên, Khung sachs*/
 .KhungNhanVien, .KhungSach,.KhungChuaMuon,.KhungDaMuon,.KhungQuaHan,.KhungHong,.KhungMat{
     display: none;
@@ -50,4 +76,21 @@
 }
 .HienThiKhung{
     display: block;
+}
+/*Khúc định dạng bảng đọc giả*/
+.fa-trash,.fa-pen-to-square{
+    font-size: 1.5em;
+    text-shadow: 1px 3px 3px rgb(132, 132, 132);
+}
+.fa-trash{
+    color: red;
+}
+.fa-trash:hover{
+    color: rgb(235, 27, 27);
+}
+.fa-pen-to-square{
+    color: rgb(0, 45, 246);
+}
+.fa-pen-to-square:hover{
+    color: rgb(32, 67, 219);
 }
