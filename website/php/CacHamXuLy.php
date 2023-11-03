@@ -81,4 +81,39 @@
         $thucHien = TruyVan($sql);
         return $thucHien;
     }
+
+    //7. Hàm lấy thông tin nhân viên
+    function infNhanVien(){
+        $sql = "SELECT * FROM nhanvien nv INNER JOIN taikhoan tk on nv.IDnhanVien = tk.UserID";
+        $thucHien = TruyVan($sql);
+        return $thucHien;
+    }
+
+    //8. Hàm lấy thông tin sách
+    function infSach(){
+        $sql = "SELECT *FROM Sach";
+        $thucHien = TruyVan($sql);
+        return $thucHien;
+    }
+
+    //9.Lấy thông tin nhà xuất bản thông qua mã
+    function identifyNhaXuatBan($idnxb){
+        $sql = "SELECT * FROM NhaXuatBan WHERE idNXB = '$idnxb'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
+    
+    //10.Lấy thông tin tác giả thông qua mã
+    function identifyTacGia($idtacGia){
+        $sql = "SELECT * FROM tacgia WHERE IDTacGia = '$idtacGia'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
+
+    //11.Lấy thông tin thể loại thông qua mã
+    function identifyTheLoai($idtacGia){
+        $sql = "SELECT * FROM TheLoai WHERE idTheLoai = '$idtacGia'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
 ?>
