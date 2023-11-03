@@ -21,10 +21,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!--Jquery-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="../../js/admin/home.js" async></script>
         <!--Script-->
         <script src="../../nodejs/public/ConnectMySQL.js" async></script>
         <!--CSS-->
         <link rel="stylesheet" href="../../css/admin/TrangChu.css">
+        <!--PHP-->
+        <?php
+            include('../../php/ConnectMySQL.php');
+            include('../../php/CacHamXuLy.php');
+        ?>
     </head>
     <body>
         <header></header>
@@ -47,7 +53,65 @@
                     </div>
                 </div>
                 <div class="CotHienThiThongTin">
-
+                    <!--
+                        Đọc giả
+                    -->
+                    <div class="khungDocGia">
+                        <table>
+                            <tr>
+                                <th>UserID/Mã đọc giả</th>
+                                <th>Họ tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Số điện thoại</th>
+                                <th>Mật khẩu</th>
+                            </tr>
+                            <?php
+                                $TTdocGia = infDocGia();
+                                while($row = mysqli_fetch_array($TTdocGia)){
+                                    echo'<tr>
+                                            <td>'.$row['UserID'].'</td>
+                                            <td>'.$row['hoTen'].'</td>
+                                            <td>'.$row['gioiTinh'].'</td>
+                                            <td>'.$row['ngaySinh'].'</td>
+                                            <td>'.$row['SDT'].'</td>
+                                            <td>'.$row['MatKhau'].'</td>
+                                        </tr>';
+                                }
+                            ?>
+                        </table>
+                        
+                    </div>
+                    <!--
+                        Nhân viên
+                    -->
+                    <div class="KhungNhanVien">
+                        <p>DS nhân viên</p>
+                    </div>
+                    <!--
+                        Sách
+                    -->
+                    <div class="KhungSach">
+                        <p>DS sách</p>
+                    </div>
+                    <!--
+                        Tình trạng sách
+                    -->
+                    <div class="KhungChuaMuon">
+                        <p>Chưa mượn</p>
+                    </div>
+                    <div class="KhungDaMuon">
+                        <p>Đã mượn</p>
+                    </div>
+                    <div class="KhungQuaHan">
+                        <p>Quá hạn</p>
+                    </div>
+                    <div class="KhungHong">
+                        <p>HỎng</p>
+                    </div>
+                    <div class="KhungMat">
+                        <p>Mất</p>
+                    </div>
                 </div>
             </div>
               

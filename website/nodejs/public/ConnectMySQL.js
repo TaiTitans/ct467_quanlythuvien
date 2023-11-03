@@ -8,6 +8,9 @@ var con = mysql.createConnection({
 
 //Kiểm tra kết nối với csdl được chưa
 con.connect(function(err){
-    if(err) throw err;
-    console.log("Connected!");
+    if (err) {
+        console.log('Error connecting to database:', err);
+      } else {
+        console.log('Connected to database!');
+      }
 })
