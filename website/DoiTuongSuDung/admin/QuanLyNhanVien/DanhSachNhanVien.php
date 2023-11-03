@@ -28,7 +28,6 @@
     </head>
     <body>
         <header>
-
         </header>
         <main>
             <div>
@@ -64,13 +63,15 @@
                                     <td>'.$row['MatKhau'].'</td>';
                     ?>
                                     <td>
-                                        <button type="button" onclick="XacNhanXoaNhanVien(<?php echo json_encode($row['UserID']); ?>)"><i class="fa-solid fa-trash"></i></button>
+                                        <button type="button" onclick='XacNhanXoaNhanVien(<?php echo json_encode($row["UserID"]);?>)'>
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
                                     </td>
                                     <td>
                                         <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                     <?php        
-                                echo'</tr>';
+                                echo'</tr>';/*<?php echo json_encode($row['UserID']); ?>*/
                         }
                     ?>
                 </table>
