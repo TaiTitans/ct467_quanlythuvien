@@ -20,6 +20,7 @@
     "sequelize": "^6.33.0"
   },
   "scripts": {
+    "start": "nodemon server.js",
     "test": "nodemon server.js",
     "dev": "nodemon server.js & tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
