@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Danh sách đọc giả</title>
+        <title>Danh sách nhân viên</title>
 
         <!--Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -39,20 +39,25 @@
                         <th>Giới tính</th>
                         <th>Ngày sinh</th>
                         <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th>Mật khẩu</th>
                         <th>Delete</th>
                         <th>Cập nhật</th>
                     </tr>
                     <?php
                         include('../../../php/ConnectMySQL.php');
                         include('../../../php/CacHamXuLy.php');
-                        $TTdocGia = infDocGia();
+                        $TTdocGia = infNhanVien();
                         while($row = mysqli_fetch_array($TTdocGia)){
                             echo'<tr>
-                                    <td>'.$row['IDdocGia'].'</td>
+                                    <td>'.$row['UserID'].'</td>
                                     <td>'.$row['hoTen'].'</td>
                                     <td>'.$row['gioiTinh'].'</td>
                                     <td>'.$row['ngaySinh'].'</td>
                                     <td>'.$row['SDT'].'</td>
+                                    <td>'.$row['Email'].'</td>
+                                    <td>'.$row['DiaChi'].'</td>
                                     <td>'.$row['MatKhau'].'</td>
                                     <td>
                                         <a href="###" ><i class="fa-solid fa-trash"></i></a>
