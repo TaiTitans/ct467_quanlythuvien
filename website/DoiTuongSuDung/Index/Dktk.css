@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eee;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #393E46;
+}
+.form-group, .form-group-GT {
+    margin-bottom: 15px;
+    color: #eee;
+    font-weight: bold;
+}
+.form-group {
+    display: block;
+}
+
+.form-group input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.body label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.form-group button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.form-group button.cancel {
+    background-color: #ccc;
+}
