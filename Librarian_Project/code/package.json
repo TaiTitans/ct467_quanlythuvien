@@ -17,6 +17,7 @@
     "morgan": "^1.10.0",
     "ms": "^2.0.0",
     "mysql": "^2.18.1",
+    "php-server": "^1.0.0",
     "sequelize": "^6.33.0"
   },
   "scripts": {
