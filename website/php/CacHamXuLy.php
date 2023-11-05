@@ -81,6 +81,20 @@
         $thucHien = TruyVan($sql);
         return $thucHien;
     }
+    function createDocGia(){
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            $Iddocgia = $_POST['IDdocGia'];
+            $hoten = $_POST['hoTen'];
+            $gioitinh = $_POST['gioiTinh'];
+            $ngaysinh = $_POST['ngaySinh'];
+            $sdt = $_POST['SDT'];
+            $matkhau = $_POST['MatKhau'];
+        } 
+
+        $sql = "INSERT INTO docgia (IDdocGia, hoTen, gioiTinh, ngaySinh, SDT, MatKhau) VALUES ('$Iddocgia', '$hoten', '$gioitinh', '$ngaysinh', '$sdt', '$matkhau')";
+        $thucHien = TruyVan($sql);
+        return $thucHien;
+    }
 
     //7. Hàm lấy thông tin nhân viên
     function infNhanVien(){

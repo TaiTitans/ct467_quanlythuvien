@@ -1,34 +1,41 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
 }
-table{
+
+table {
     border-collapse: collapse;
     text-align: center;
     font-size: 1.15em;
     font-family: Arial, Helvetica, sans-serif;
 }
-td{
+
+td {
     border: 1px rgb(153, 153, 153) solid;
 }
-th{
+
+th {
     border: 2px solid #fff;
 }
-table tr:nth-child(odd){
+
+table tr:nth-child(odd) {
     background-color: rgb(244, 249, 224);
 }
-tr td{
+
+tr td {
     padding: 0.5vw 1vw 0.5vw 1vw;
 }
+
 /*Trang chu*/
-.KhungChinAdmin{
+.KhungChinAdmin {
     display: grid;
-    grid-template-areas: 
-    "KhuI KhuII KhuII";
-    
+    grid-template-areas:
+        "KhuI KhuII KhuII";
+
 }
-.CotHienThiChucNang{
+
+.CotHienThiChucNang {
     grid-area: KhuI;
     background-color: rgb(38, 36, 36);
     height: 100vmax;
@@ -36,61 +43,131 @@ tr td{
     font-family: Arial;
     z-index: 1;
 }
-.CotHienThiThongTin{
+
+.CotHienThiThongTin {
     grid-area: KhuII;
     width: 55vw;
     z-index: 0;
 }
-#DanhSachTinhTrangSach{
+
+#DanhSachTinhTrangSach {
     text-align: center;
 }
-.NutAdmin{
+
+.NutAdmin {
     text-align: center;
     font-size: 2em;
     font-weight: 550;
     margin: 2vw 0 3vw 0;
 }
-.NutChung{
+
+.NutChung {
     font-size: 1.25em;
     width: 100%;
     padding: 2vw;
 
 }
-.NutChung:hover{
+
+.NutChung:hover {
     background-color: rgb(6, 135, 248);
 }
-.NutXemTinhTrang{
+
+.NutXemTinhTrang {
     width: 100%;
 }
-.TieuDeBang th{
+
+.TieuDeBang th {
     background-color: rgb(24, 25, 25);
     color: #eee;
     padding: 1vw 0.5vw 1vw 0.5vw;
 }
+
 /*Tắt trang hiển thị nhân viên, Khung sachs*/
-.KhungNhanVien, .KhungSach,.KhungChuaMuon,.KhungDaMuon,.KhungQuaHan,.KhungHong,.KhungMat{
+.KhungNhanVien,
+.KhungSach,
+.KhungChuaMuon,
+.KhungDaMuon,
+.KhungQuaHan,
+.KhungHong,
+.KhungMat {
     display: none;
 }
-.TatKhung{
+
+.TatKhung {
     display: none;
 }
-.HienThiKhung{
+
+.HienThiKhung {
     display: block;
 }
+
 /*Khúc định dạng bảng đọc giả*/
-.fa-trash,.fa-pen-to-square{
+.fa-trash,
+.fa-pen-to-square {
     font-size: 1.5em;
     text-shadow: 1px 3px 3px rgb(132, 132, 132);
 }
-.fa-trash{
+
+.fa-trash {
     color: red;
 }
-.fa-trash:hover{
+
+.fa-trash:hover {
     color: rgb(235, 27, 27);
 }
-.fa-pen-to-square{
+
+.fa-pen-to-square {
     color: rgb(0, 45, 246);
 }
-.fa-pen-to-square:hover{
+
+.fa-pen-to-square:hover {
     color: rgb(32, 67, 219);
+}
+
+.content-wapper {
+    background: #efebdb;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-wapper .item-wapper {
+    width: 460px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.content-wapper .item-wapper form {
+    padding: 60px 40px;
+}
+
+.content-wapper .item-wapper form .title {
+    font-size: 26px;
+    color: #767336;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content-wapper .item-wapper form input {
+    display: block;
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 10px;
+    border: 2px solid #efebdb;
+    border-radius: 10px;
+    outline-color: #dbc589;
+}
+
+.content-wapper .item-wapper form .button input {
+    font-size: 20px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #efebdb;
 }
