@@ -173,8 +173,8 @@
     //16. Hàm lấy thông tin nhà xuất bản thông qua tên
     function Ten_ThongTinNhaXuatBan($tennxb){
         $sql = "SELECT *
-        FROM NhaXuatBan WHERE TenNXB LIKE '$tennxb'";
+                FROM NhaXuatBan WHERE TenNXB LIKE '$tennxb'";
         $thucHien = TruyVan($sql);
-        return mysqli_fetch_array($thucHien);
+        return $thucHien;
     }
 ?>

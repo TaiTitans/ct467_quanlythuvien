@@ -30,7 +30,11 @@
         </header>
         <main>
             <div>
+<<<<<<< HEAD
                 <a href="./ThemSach.php">Thêm sách</a>
+=======
+                <a href="ThemSach.php">Thêm sách</a>
+>>>>>>> 925bbd0738abfb11c88ddbfab99a7ea6921afcc6
                 
                 <table>
                     <tr class="TieuDeBang">
