@@ -68,13 +68,13 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="/website/DoiTuongSuDung/admin/QuanLyNhanVien/chinhSuaThongTinNhanVien.php?MSNV=<?php echo $row['UserID'];?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                     <?php        
                                 echo'</tr>';/*<?php echo json_encode($row['UserID']); ?>*/
                         }
-                    ?>
-                </table>
+                    ?> 
+                </table>a
             </div>
         </main>
         <footer></footer>
