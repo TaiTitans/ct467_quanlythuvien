@@ -45,17 +45,20 @@
     //Lấy Thông tin
     $layIDtacGiaQuaTen = "CALL Find_Name_TacGia('".$tacGia."')";
     $IDtacGia = mysqli_fetch_array(TruyVan($layIDtacGiaQuaTen))['IDTacGia'];
-    $IDnhaXB = Ten_ThongTinNhaXuatBan($NhaXuatBan)['idNXB'];
+    $IDnhaXB = Ten_ThongTinNhaXuatBan(trim($NhaXuatBan));
 
-    $LayIDsachCuoi = "SELECT * FROM Sach
-                    ORDER BY idSach DESC LIMIT 1";
-    $ThucHien3 = mysqli_fetch_array(TruyVan($LayIDsachCuoi));
-    $maSachMoi = IncreaseIDIndex($ThucHien3['idSach']);
-    echo"<p>Mã sách mới: ".$maSachMoi."</p>";
-    //Thêm sách mới
-    $ThemSach = "INSERT INTO sach(idSach,tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai) 
-                VALUES('".$maSachMoi."','".$TenSach."','".$moTa."','".$namXuatBan."','".$IDnhaXB."','".$IDtacGia."','".$theLoai."')";
-    $thucHien = TruyVan($ThemSach);
+    // echo"<p>ID tác giả: ".$IDtacGia."</p>";
+    // echo"<p>ID nhà xuất bản: ".$IDnhaXB ."</p>";
+    
+    // $LayIDsachCuoi = "SELECT * FROM Sach
+    //                 ORDER BY idSach DESC LIMIT 1";
+    // $ThucHien3 = mysqli_fetch_array(TruyVan($LayIDsachCuoi));
+    // echo"<p>Mã sách cũ: ".trim($ThucHien3['idSach'])."</p>";
 
+    // echo"<p>Mã sách mới: ".$maSachMoi."</p>";
+    // //Thêm sách mới
+    // $ThemSach = "INSERT INTO sach(idSach,tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai) 
+    //             VALUES('".$maSachMoi."','".$TenSach."','".$moTa."','".$namXuatBan."','".$IDnhaXB."','".$IDtacGia."','".$theLoai."')";
+    // $thucHien = TruyVan($ThemSach);
 
 ?>

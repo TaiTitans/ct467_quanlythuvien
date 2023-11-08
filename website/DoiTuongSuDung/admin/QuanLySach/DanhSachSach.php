@@ -30,7 +30,7 @@
         </header>
         <main>
             <div>
-                <a href="">Thêm sách</a>
+                <a href="ThemSach.php">Thêm sách</a>
                 
                 <table>
                     <tr class="TieuDeBang">
