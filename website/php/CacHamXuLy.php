@@ -211,4 +211,11 @@
         $thucHien = TruyVan($sql);
         return $thucHien;
     }
+
+    //21.Lấy thông tin nhân viên bằng ID
+    function identifyNhanVien($msnv){
+        $sql = "CALL qlthuvien.Find_ID_NhanVien('$msnv')";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
 ?>

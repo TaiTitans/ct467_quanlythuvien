@@ -35,7 +35,10 @@
             echo "<p>ID sách: ".$IDsach."</p>";
 
             $TTsach = ID_Sach($IDsach);
-        ?>
+
+            mysqli_next_result($connect);
+            $IDtacGia = identifyTacGia($TTsach['IDtacGia']); 
+        ?>  
     </head>
     <body>
         <header></header>
@@ -65,31 +68,28 @@
                         </tr>
                         <tr>
                             <td>
-                                <p>Tác giả:  <?php echo $TTsach["IDtacGia"];?></p>
-                                <select name="tacGia">
-                                    <?php
-                                        
-                                        while($row = All_ThongTinTacGia()){
-                                            
-                                            if($row['IDTacGia'] == $TTsach["IDtacGia"]){
-                                                
-                                                echo "<option value='".$row['IDTacGia']."' selected>
-                                                            <p>".identifyTacGia($row['IDTacGia'])['hoTen']."</p>
-                                                        </option>";
-                                            }
-                                            
-                                            else{
-                                                
-                                                echo "<option value='".$row['IDTacGia']."' >
-                                                            <p>".identifyTacGia($row['IDTacGia'])['hoTen']."</p>
-                                                        </option>";
-                                            }
+                                <p>Tác giả:  </p>
+                                <?php
+                                    $LayTacGia = "SELECT * FROM tacgia";
+                                    $act_LayTacGia = TruyVan($LayTacGia);
+                                    mysqli_next_result($connect);
+
+                                    echo '<select name="tacGia">';
+
+                                    while($row = mysqli_fetch_array($act_LayTacGia)){
+                                        mysqli_next_result($connect);
+                                        $tenTG = identifyTacGia($row['IDTacGia'])['hoTen'];
+
+                                        if($row['IDTacGia'] == $IDtacGia ){
+                                            echo '<option value ='.$row['IDTacGia'].' selected>'.$tenTG.'</option>';
+                                        }else{
+                                            echo '<option value ='.$row['IDTacGia'].' >'.$tenTG.'</option>';
                                         }
-                                    ?>
-                                    <option value="" selected><?php mysqli_next_result($connect); echo identifyTacGia($TTsach["IDtacGia"])['hoTen'] ;?></option>
-                                </select>
+                                    }
+                                    echo '</select>';
+                                ?>
                             </td>
-                            <td>
+                            <td> <option value="" selected></option>
                                 <p>Thể loại:</p>
 
                             </td>
