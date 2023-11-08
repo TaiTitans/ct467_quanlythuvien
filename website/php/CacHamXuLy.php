@@ -77,7 +77,7 @@
 
     //6. Hàm lấy thông tin đọc giả
     function infDocGia(){
-        $sql = "SELECT * FROM docgia dg INNER JOIN taikhoan tk on dg.IDdocGia = tk.UserID";
+        $sql = "SELECT * FROM docgia";
         $thucHien = TruyVan($sql);
         return $thucHien;
     }
@@ -137,5 +137,44 @@
                 alert("Thực hiện thành công");
                 history.back();
             </script>';
+    }
+
+    //13. Lấy thông tin thể loại
+    function infTheLoai(){
+        $sql = "SELECT * FROM TheLoai";
+        $thucHien = TruyVan($sql);
+        return $thucHien;
+    }
+
+    //14. Hàm này sẽ kiểm tra tên tác giả có tồn tại hay không
+    function Find_TenTacGia($tentg){
+        $sql = "SELECT COUNT(*) DEM
+        FROM tacgia WHERE hoTen LIKE '$tentg'";
+        $thucHien = TruyVan($sql);
+
+        if(mysqli_fetch_array($thucHien)['DEM'] > 0){
+            return 1;
+        }
+        return 0;
+    } 
+
+    //15. Hàm tìm kiếm tên nhà xuất bản
+    function Find_TenNhaXuatBan($tennxb){
+        $sql = "SELECT COUNT(*) DEM
+        FROM NhaXuatBan WHERE TenNXB LIKE '$tennxb'";
+        $thucHien = TruyVan($sql);
+
+        if(mysqli_fetch_array($thucHien)['DEM'] > 0){
+            return 1;
+        }
+        return 0;
+    }
+    
+    //16. Hàm lấy thông tin nhà xuất bản thông qua tên
+    function Ten_ThongTinNhaXuatBan($tennxb){
+        $sql = "SELECT *
+        FROM NhaXuatBan WHERE TenNXB LIKE '$tennxb'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
     }
 ?>

@@ -22,7 +22,8 @@
         <!--Script-->
         <script src="../../nodejs/public/ConnectMySQL.js" async></script>
         <script src="../../../js/TrangChu.js" async></script>
-
+        <script src="../../../js/sach/rangBuoc.js" async></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--CSS-->
         <link rel="stylesheet" href="../../../css/Sach/sach.css">
         <link rel="stylesheet" href="../../../css/TrangDungChung/TrangDungChung.css">        
@@ -36,7 +37,7 @@
         <header></header>
         <main>
             <div class="KhungThemSach">
-                <form action="" method="get"  class="BangThemSach">
+                <form name="BieuMauThemSach" action="ThucHienThemSach.php" method="post" enctype="application/x-www-form-urlencoded"  class="BangThemSach" onsubmit="return BieuMauThemSach()">
                     <table>
                         <tr>
                             <th colspan="2">
@@ -53,7 +54,7 @@
                             <td>
                                 <label>Năm xuất bản</label>
                                 <div class="DienThongTin ODienThongTin">
-                                    <input type="text" placeholder="Năm xuất bản">
+                                    <input name="NamXuatBan" type="text" placeholder="Năm xuất bản">
                                 </div>
                             </td>
                         </tr>
@@ -61,25 +62,36 @@
                             <td>
                                 <label>Nhà xuất bản</label>
                                 <div class="DienThongTin ODienThongTin">
-                                    <input type="text" placeholder="Nhà xuất bản">
+                                    <input name="nhaXuatBan" type="text" placeholder="Nhà xuất bản">
                                 </div>
                             </td>
                             <td>
                                 <label>Tác giả</label>
                                 <div class="DienThongTin ODienThongTin">
-                                    <input type="text" placeholder="Tên tác giả">
+                                    <input name="TacGia" type="text" placeholder="Tên tác giả">
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td>
                                 <label>Thể loại</label>
                                 
                                 <div class="ODienThongTin">
-                                    <input type="text"  placeholder="Thể loại sách">
-                                    <?php
-
-                                    ?>
+                                    <select name="TheLoaiSach" >
+                                        <?php
+                                            $LayTheLoai = infTheLoai();
+                                            while($row = mysqli_fetch_array($LayTheLoai)){
+                                                echo '<option value='.$row['idTheLoai'].'>'.$row['TenTheLoai'].'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                    
+                                </div>
+                            </td>
+                            <td>
+                                <label>Số lượng</label>
+                                <div class="DienThongTin ODienThongTin">
+                                    <input name="soLuong" type="number" placeholder="Nhập số lượng sách">
                                 </div>
                             </td>
                         </tr>
