@@ -171,10 +171,51 @@
     }
     
     //16. Hàm lấy thông tin nhà xuất bản thông qua tên
-    function Ten_ThongTinNhaXuatBan($tennxb){
-        $sql = "SELECT *
-                FROM NhaXuatBan WHERE TenNXB LIKE '$tennxb'";
+    function FindTen_NhaXuatBan($tenNXB){
+        $tenNXB = trim($tenNXB);
+        $sql = "CALL qlthuvien.Find_Name_NhaXuatBan('".$tenNXB."')";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
+
+    //17. Hàm kiểm tra tên sách có tồn tại hay không
+    function FindTen_Sach($tenSach){
+        $sql = "SELECT COUNT(*) dem 
+        FROM Sach
+        WHERE tenSach LIKE '%$tenSach%'";
+        $thucHien = mysqli_fetch_array(TruyVan($sql))['dem'];
+        if($thucHien < 1){
+            return 0;
+        }
+        return 1;
+    }
+    
+    //18. Lấy số lượng mẫu tin chi tiết sách
+    function SoLuongMauTin_ChiTietSach(){
+        $sql = "SELECT COUNT(*) dem 
+        FROM ChiTietSach";
+        $thucHien = mysqli_fetch_array(TruyVan($sql))['dem'];
+        return $thucHien;
+    }
+
+    //19. Lấy sách dựa trên mã sách
+    function ID_Sach($idsach){
+        $sql = "CALL qlthuvien.Find_ID_Sach('$idsach')";
+        $thucHien = mysqli_fetch_array(TruyVan($sql));
+        return $thucHien;
+    }
+
+    //20. Tất cả mẫu tin tác giả
+    function All_ThongTinTacGia(){
+        $sql = "SELECT * FROM tacgia";
         $thucHien = TruyVan($sql);
         return $thucHien;
+    }
+
+    //21.Lấy thông tin nhân viên bằng ID
+    function identifyNhanVien($msnv){
+        $sql = "CALL qlthuvien.Find_ID_NhanVien('$msnv')";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
     }
 ?>
