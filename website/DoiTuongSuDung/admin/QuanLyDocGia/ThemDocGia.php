@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Jquery-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../../../js/DungChung.js" async></script>
     <!--CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
@@ -29,13 +30,9 @@
 <body>
     <div class="content-wapper">
         <div class="item-wapper">
-            <form action="ThemDocGia.php" , method="POST">
+            <form action="ThemDocGia.php"  method="POST" enctype="application/x-www-form-urlencoded">
                 <div class="title">
-                    Thêm đọc giả
-                </div>
-                <div class="iddocgia">
-                    <!-- <label for="IDdocGia">UserID/Mã đọc giả</label> -->
-                    <input type="text" id="IDdocGia" name="IDdocGia" placeholder="UserID/Mã đọc giả" required>
+                    THÊM THÔNG TIN ĐỌC GIẢ
                 </div>
                 <div class="fullname">
                     <!-- <label for="hoTen">Họ Tên</label> -->
@@ -47,32 +44,41 @@
                 </div>
                 <div class="birth">
                     <!-- <label for="ngaySinh">Ngày sinh</label> -->
-                    <input type="text" id="ngaySinh" name="ngaySinh" placeholder="Ngày sinh" required>
+                    <input type="date" id="ngaySinh" name="ngaySinh" placeholder="Ngày sinh" required>
                 </div>
                 <div class="phone">
                     <!-- <label for="SDT">SĐT</label> -->
                     <input type="text" id="SDT" name="SDT" placeholder="SĐT" required>
                 </div>
-                <div class="pass">
-                    <!-- <label for="MatKhau">Mật khẩu</label> -->
-                    <input type="password" id="MatKhau" name="MatKhau" placeholder="Mật khẩu" required>
-                </div>
+                
                 <div class="button">
-                    <input type="submit" value="Thêm nhân viên">
+                    <input type="submit" value="Thêm đọc giả" onclick="TaiLaiTrang()">
                 </div>
             </form>
             <?php
+            include('../../../php/ConnectMySQL.php');
+            include('../../../php/CacHamXuLy.php');
+            
+            //Tạo ID mới từ ID cũ
+            $truyVanLayThongTinCuoi = "SELECT * FROM docgia
+                                    ORDER BY IDdocGia DESC LIMIT 1";
+            $maDinhDanhCu = mysqli_fetch_array(TruyVan($truyVanLayThongTinCuoi))['IDdocGia'];
+            $maDinhDanhMoi = trim(IncreaseIDIndex($maDinhDanhCu));
+
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $Iddocgia = $_POST['IDdocGia'];
                 $hoten = $_POST['hoTen'];
                 $gioitinh = $_POST['gioiTinh'];
                 $ngaysinh = $_POST['ngaySinh'];
                 $sdt = $_POST['SDT'];
-                $matkhau = $_POST['MatKhau'];
 
-                $sql = "INSERT INTO docgia (IDdocGia, hoTen, gioiTinh, ngaySinh, SDT, MatKhau) VALUES ('$Iddocgia', '$hoten', '$gioitinh', '$ngaysinh', '$sdt', '$matkhau')";
-                echo '{$sql}';
-                print($sql);
+                $sql = "INSERT INTO docgia (IDdocGia, hoTen, gioiTinh, ngaySinh, SDT) 
+                VALUES ('".$maDinhDanhMoi."', '".$hoten."', '".$gioitinh."', '".$ngaysinh."', '".$sdt."')";
+                TruyVan($sql);
+                echo "
+                    <script>
+                        alert('Thêm thành công');
+                    </script>
+                ";
             }
             ?>
 

@@ -218,4 +218,11 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien);
     }
+
+    //22. lấy thông tin thể loại
+    function LayThongTinTheLoai($msnv){
+        $sql = "SELECT * FROM TheLoai WHERE idTheLoai = '$msnv'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
 ?>
