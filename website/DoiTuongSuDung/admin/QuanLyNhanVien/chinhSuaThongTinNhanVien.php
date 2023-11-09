@@ -3,11 +3,12 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chỉnh sửa nhân viên</title>
+    <title>Chinh Sua Nhan Vien</title>
     <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
         <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
         <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<<<<<<< HEAD
         <!--
           PHP
         -->
@@ -41,6 +42,8 @@
 
                                 }
         ?>
+=======
+>>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
     </head>
     <body>
     <script>
@@ -48,29 +51,29 @@
   const userMenuButton = document.getElementById('user-menu-button');
   const userMenu = document.querySelector('.user-menu');
 
-  userMenuButton.addEventListener('click', function () {
-    userMenu.classList.toggle('hidden');
-  });
-});
+      userMenuButton.addEventListener('click', function() {
+        userMenu.classList.toggle('hidden');
+      });
+    });
   </script>
-        <div class="header">
-        <nav class="bg-gray-800">
-            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-              <div class="relative flex h-16 items-center justify-between">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                  <!-- Mobile menu button-->
-                  <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="absolute -inset-0.5"></span>
-                    <span class="sr-only">Mở menu</span>
-                    <!--
+  <div class="header">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Mở menu</span>
+              <!--
                       Icon when menu is closed.
           
                       Menu open: "hidden", Menu closed: "block"
                     -->
-                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                    <!--
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!--
                       Icon when menu is open.
           
                       Menu open: "block", Menu closed: "hidden"
@@ -88,9 +91,9 @@
                     <div class="flex space-x-4">
                       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                       <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Trang chủ</a>
-                      <a href="/website/DoiTuongSuDung/admin/QuanLySach/DanhSachSach.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Kho Sách</a>
-                      <a href="/website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân Viên</a>
-                      <a href="/website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông tin cho mượn</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLySach/DanhSachSach.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Kho Sách</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân Viên</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông tin cho mượn</a>
                     </div>
                   </div>
                 </div>
@@ -143,23 +146,26 @@
                 </h1>
         </div>
 
-        <!-- Form -->
+      <!-- Form -->
 
-        <div class="bg-white border border-4 rounded-lg shadow relative m-10">
+      <div class="bg-white border border-4 rounded-lg shadow relative m-10">
 
-<div class="flex items-start justify-between p-5 border-b rounded-t">
-    <h3 class="text-xl font-semibold">
-    Thông tin
-    </h3>
-    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="product-modal">
-       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-</div>
+        <div class="flex items-start justify-between p-5 border-b rounded-t">
+          <h3 class="text-xl font-semibold">
+            Thông tin
+          </h3>
+          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="product-modal">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
 
 <div class="p-6 space-y-6">
-    <form action="" method="POST">
+    <form action="#">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
+<<<<<<< HEAD
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
                 <input type="text" value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
             </div>
@@ -174,16 +180,37 @@
             <div class="col-span-6 sm:col-span-3">
                 <label for="Email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
                 <input type="email" value='<?php echo $TTnv['Email'];?>' name="Email" id="Email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
+=======
+                <label for="product-name" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
+                <input type="text" name="product-name" id="product-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
-                        <label for="ngaySinh" class="text-sm mb-2 block text-base font-medium text-gray-900">
+                <label for="category" class="text-sm font-medium text-gray-900 block mb-2">Họ và tên</label>
+                <input type="text" name="category" id="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="brand" class="text-sm font-medium text-gray-900 block mb-2">SDT</label>
+                <input type="text" name="brand" id="brand" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
+                <input type="email" name="price" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
+>>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                        <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
                         Ngày sinh
                         </label>
+<<<<<<< HEAD
                         <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngaySinh" id="ngaySinh"
+=======
+                        <input type="date" name="date" id="date"
+>>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
                             class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                     </div>
 
                     <div class="mb-4 ">
+<<<<<<< HEAD
             <label for="gioiTinh" class="block text-gray-900 font-medium mb-2">Giới tính</label>
             
             <select value='<?php echo $TTnv['gioiTinh'];?>' id="gioiTinh" name="gioiTinh"
@@ -208,15 +235,30 @@
             <div class="col-span-full">
                 <label name='DiaChi' for="DiaChi" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
                 <textarea id="DiaChi"  rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Địa chỉ"><?php echo $TTnv['DiaChi'];?></textarea>
+=======
+            <label for="gender" class="block text-gray-900 font-medium mb-2">Giới tính</label>
+            <select id="gender" name="gender"
+                class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
+                <option value="">Chọn giới tính</option>
+                <option value="male">1</option>
+                <option value="female">0</option>
+            </select>
+        </div>
+            <div class="col-span-full">
+                <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
+                <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"></textarea>
+>>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
             </div>
         </div>
-        <div class="flex justify-center mb-4 mt-4">
-   <button type="submit" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring" name="luuThongTin">Lưu thông tin</button>
-</div>
     </form>
 </div>
 
+<div class="flex justify-center mb-4">
+            <a class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring" href="/">
+                Lưu thông tin
+            </a>
+        </div>
 
-    </body>
-    
+</body>
+
 </html>
