@@ -54,10 +54,10 @@
                                     <td>'.$row['ngaySinh'].'</td>
                                     <td>'.$row['SDT'].'</td>
                                     <td>
-                                        <a href="###" ><i class="fa-solid fa-trash"></i></a>
+                                        <a href="#" ><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                     <td>
-                                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="./ChinhSuaThongTinDocGia.php"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                 </tr>';
                         }
