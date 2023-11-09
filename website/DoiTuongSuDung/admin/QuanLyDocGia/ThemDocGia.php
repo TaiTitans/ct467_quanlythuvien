@@ -59,10 +59,10 @@
                 <div class="gioitinh">
                     <!-- <label for="gioiTinh">Giới tính</label> -->
                     <select name="gioiTinh" id="gioiTinh" class="gioitinh_themdocgia" required>
-  <option value=""> Chọn giới tính</option>
-  <option value="m">    Nam</option>
-  <option value="f">    Nữ</option>
-</select>
+                    <option value=""> Chọn giới tính</option>
+                    <option value="m">    Nam</option>
+                    <option value="f">    Nữ</option>
+                    </select>
                 </div>
                 <div class="birth">
                     <!-- <label for="ngaySinh">Ngày sinh</label> -->
@@ -71,10 +71,6 @@
                 <div class="phone">
                     <!-- <label for="SDT">SĐT</label> -->
                     <input type="text" id="SDT" name="SDT" placeholder="SĐT" required>
-                </div>
-                <div class="pass">
-                    <!-- <label for="MatKhau">Mật khẩu</label> -->
-                    <input type="password" id="MatKhau" name="MatKhau" placeholder="Mật khẩu" required>
                 </div>
                 <div class="button">
                     <input type="submit" value="Thêm nhân viên">
