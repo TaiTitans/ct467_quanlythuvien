@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
         <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<<<<<<< HEAD
+
         <!--
           PHP
         -->
@@ -42,8 +42,6 @@
 
                                 }
         ?>
-=======
->>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
     </head>
     <body>
     <script>
