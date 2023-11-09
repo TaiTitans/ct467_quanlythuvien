@@ -37,7 +37,7 @@
         <header></header>
         <main>
             <div class="KhungThemSach">
-                <form name="BieuMauThemSach" action="ThucHienThemSach.php" method="post" enctype="application/x-www-form-urlencoded"  class="BangThemSach" onsubmit="return BieuMauThemSach()">
+                <form name="BieuMauThemSach1" action="ThucHienThemSach.php" method="post" enctype="application/x-www-form-urlencoded"  class="BangThemSach" onsubmit="return BieuMauThemSach()">
                     <table>
                         <tr>
                             <th colspan="2">
