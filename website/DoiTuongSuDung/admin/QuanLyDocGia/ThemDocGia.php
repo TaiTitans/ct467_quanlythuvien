@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm đọc giả</title>
+    <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
 
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -40,7 +41,11 @@
                 </div>
                 <div class="gioitinh">
                     <!-- <label for="gioiTinh">Giới tính</label> -->
-                    <input type="text" id="gioiTinh" name="gioiTinh" placeholder="Giới tính" required>
+                    <select name="gioiTinh" id="gioiTinh" class="gioitinh_themdocgia" required>
+  <option value=""> Chọn giới tính</option>
+  <option value="m">    Nam</option>
+  <option value="f">    Nữ</option>
+</select>
                 </div>
                 <div class="birth">
                     <!-- <label for="ngaySinh">Ngày sinh</label> -->
@@ -51,7 +56,7 @@
                     <input type="text" id="SDT" name="SDT" placeholder="SĐT" required>
                 </div>
                 
-                <div class="button">
+                <div class="button button_themdocgia">
                     <input type="submit" value="Thêm đọc giả" onclick="TaiLaiTrang()">
                 </div>
             </form>

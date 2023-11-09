@@ -169,5 +169,15 @@ tr td {
     border-radius: 10px;
     border: none;
     outline: none;
-    background: #efebdb;
+    background: #0066cc;
+    color:#fff;
+}
+.gioitinh_themdocgia{
+    width: 380px;
+    height: 55px;
+    margin-bottom: 10px;
+    border: 2px solid #efebdb;
+    border-radius: 10px;
+    outline-color: #dbc589;
+    background-color: #fff;
 }
