@@ -1,10 +1,14 @@
+
 <?php
     include('../php/ConnectMySQL.php');
     include('../php/CacHamXuLy.php');
-    $truyVanLayThongTinCuoi = "SELECT * FROM docgia
-                                    ORDER BY IDdocGia DESC LIMIT 1";
-            $maDinhDanhCu = mysqli_fetch_array(TruyVan($truyVanLayThongTinCuoi))['IDdocGia'];
-            $maDinhDanhMoi = trim(IncreaseIDIndex($maDinhDanhCu));
-    echo '<p>ID cũ: '.$maDinhDanhCu.'</p>';
-    echo '<p>ID mới: '. $maDinhDanhMoi.'</p>';
+    echo '<select name="" id="">';
+    $LayThongTinNXB = "SELECT * FROM NhaXuatBan";
+    $ThucHienLay = TruyVan($LayThongTinNXB);
+    while($row = mysqli_fetch_array($ThucHienLay)){
+        echo '<option value='.$row['idNXB'].'>'.$row['TenNXB'].'</option>';
+        // echo '<p>ID: '.$row['idTheLoai'].'</p>';
+        // echo '<p>Tên: '.$row['TenTheLoai'].'</p>';
+    }
+    echo '</select>';
 ?>

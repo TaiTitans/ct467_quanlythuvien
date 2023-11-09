@@ -201,8 +201,8 @@
     //19. Lấy sách dựa trên mã sách
     function ID_Sach($idsach){
         $sql = "CALL qlthuvien.Find_ID_Sach('$idsach')";
-        $thucHien = mysqli_fetch_array(TruyVan($sql));
-        return $thucHien;
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
     }
 
     //20. Tất cả mẫu tin tác giả

@@ -32,11 +32,8 @@
             include('../../../php/ConnectMySQL.php');
             include('../../../php/CacHamXuLy.php');
             $IDsach = $_GET['ID'];
-            echo "<p>ID sách: ".$IDsach."</p>";
 
             $TTsach = ID_Sach($IDsach);
-            $IDtacGia = $TTsach['IDTacGia']; 
-            echo '<p>ID Tác giả: '.$IDtacGia.'</p>';
         ?>  
     </head>
     <body>
@@ -48,33 +45,78 @@
                         <tr>
                             <td>
                                 <p>ID sách:</p>
-                                <input type="text" value="<?php echo $TTsach['idSach'];?>">
+                                <input type="text" name="idSach" value="<?php echo $TTsach['idSach'];?>">
                             </td>
                             <td>
                                 <p>Tên sách:</p>
-                                <input type="text" value="<?php echo $TTsach['tenSach'];?>">
+                                <input type="text" name="tenSach" value="<?php echo $TTsach['tenSach'];?>">
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Năm xuất bản:</p>
-                                <input type="text" value="<?php echo $TTsach['namXuatBan'];?>">
+                                <input type="text" name="namXuatBan" value="<?php echo $TTsach['namXuatBan'];?>">
                             </td>
                             <td>
                                 <p>Nhà xuất bản:</p>
-
+                                <?php
+                                    mysqli_next_result($connect);
+                                    echo '<select name="idNXB" id="">';
+                                    $LayThongTinNXB = "SELECT * FROM NhaXuatBan";
+                                    $ThucHienLay = TruyVan($LayThongTinNXB);
+                                    while($row = mysqli_fetch_array($ThucHienLay)){
+                                        if($row['idNXB'] === $TTsach['idNXB']){
+                                            echo '<option value='.$row['idNXB'].' selected>'.$row['TenNXB'].'</option>';
+                                        }else{
+                                            echo '<option value='.$row['idNXB'].'>'.$row['TenNXB'].'</option>';
+                                        }
+                                    }
+                                    echo '</select>';
+                                ?>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Tác giả:  </p>
                                 <?php
+                                    mysqli_next_result($connect);
                                     
+                                    $LayTacGia = "SELECT * FROM tacgia";
+                                    $act_LayTacGia = TruyVan($LayTacGia);
+                                    mysqli_next_result($connect);
+
+                                    echo '<select name="IDTacGia">';
+
+                                    while($row = mysqli_fetch_array($act_LayTacGia)){
+                                        mysqli_next_result($connect);
+                                        $tenTL = identifyTacGia($row['IDTacGia'])['hoTen'];
+
+                                        if($row['IDTacGia'] === $TTsach['IDtacGia']){
+                                            echo '<option value ='.$row['IDTacGia'].' selected>'.$tenTL.'</option>';
+                                        }else{
+                                            echo '<option value ='.$row['IDTacGia'].' >'.$tenTL.'</option>';
+                                        }
+                                    }
+                                    echo '</select>';
                                 ?>
                             </td>
                             <td>
                                 <p>Thể loại:</p>
                                 <?php
+                                    echo '<select name="idTheLoai" id="">';
+                                    $LayThongTinTheLoai = "SELECT * FROM TheLoai";
+                                    $ThucHienLay = TruyVan($LayThongTinTheLoai);
+                                    while($row = mysqli_fetch_array($ThucHienLay)){
+                                        if($row['idTheLoai'] === $TTsach['idTheLoai']){
+                                            echo '<option value='.$row['idTheLoai'].' selected>'.$row['TenTheLoai'].'</option>';
+                                        }else{
+                                            echo '<option value='.$row['idTheLoai'].'>'.$row['TenTheLoai'].'</option>';
+                                        }
+                                        
+                                        // echo '<p>ID: '.$row['idTheLoai'].'</p>';
+                                        // echo '<p>Tên: '.$row['TenTheLoai'].'</p>';
+                                    }
+                                    echo '</select>';
                                     
                                 ?>
                             </td>
@@ -82,7 +124,7 @@
                         <tr>
                             <td colspan="2">
                                 <p>Mô tả</p>
-                                <textarea name=""  cols="30" rows="10"> <?php echo $TTsach['MoTa'];?>
+                                <textarea name="MoTa"  cols="30" rows="10"> <?php echo $TTsach['MoTa'];?>
                                 </textarea>
                                 
                             </td>
