@@ -53,10 +53,7 @@
                     <!-- <label for="SDT">SĐT</label> -->
                     <input type="text" id="SDT" name="SDT" placeholder="SĐT" required>
                 </div>
-                <div class="pass">
-                    <!-- <label for="MatKhau">Mật khẩu</label> -->
-                    <input type="password" id="MatKhau" name="MatKhau" placeholder="Mật khẩu" required>
-                </div>
+
                 <div class="button">
                     <input type="submit" value="Thêm nhân viên">
                 </div>
