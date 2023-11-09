@@ -25,7 +25,24 @@
     <script src="../../../js/DungChung.js" async></script>
     <!--CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
     <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
+
+    <script>
+    function kiemTraVaGuiMau() {
+        var hoTen = document.getElementById("hoTen").value;
+        var gioiTinh = document.getElementById("gioiTinh").value;
+        var ngaySinh = document.getElementById("ngaySinh").value;
+        var sdt = document.getElementById("SDT").value;
+
+        if (hoTen === "" || gioiTinh === "" || ngaySinh === "" || sdt === "") {
+            alert("Vui lòng điền đủ thông tin trong các trường bắt buộc.");
+        } else {
+            // Thực hiện xử lý mẫu ở đây
+            document.forms[0].submit(); // Gửi mẫu nếu thông tin đã được điền đủ
+        }
+    }
+</script>
 </head>
 
 <body>
@@ -57,7 +74,7 @@
                 </div>
                 
                 <div class="button button_themdocgia">
-                    <input type="submit" value="Thêm đọc giả" onclick="TaiLaiTrang()">
+                    <input type="submit" value="Thêm đọc giả" onclick="kiemTraVaGuiMau()">
                 </div>
             </form>
             <?php
