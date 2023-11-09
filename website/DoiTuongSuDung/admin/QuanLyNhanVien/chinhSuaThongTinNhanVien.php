@@ -12,9 +12,9 @@
           PHP
         -->
         <?php
-                                include('/website/php/ConnectMySQL.php');
-                                include('/website/php/CacHamXuLy.php');
-
+                                                   include('../../../php/ConnectMySQL.php');
+                                                   include('../../../php/CacHamXuLy.php');
+              //include('DanhSachNhanVien.php');
                                 $msnv = $_GET['MSNV'];
                                 $TTnv = identifyNhanVien($msnv);
 
@@ -161,40 +161,53 @@
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
-                <input type="text" value='<?php //echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
+                <input type="text" value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="hoTen" class="text-sm font-medium text-gray-900 block mb-2">Họ và tên</label>
-                <input type="text" name="hoTen" id="hoTen" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
+                <input type="text" value='<?php echo $TTnv['hoTen'];?>' name="hoTen" id="hoTen" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="SDT" class="text-sm font-medium text-gray-900 block mb-2">SDT</label>
-                <input type="text" name="SDT" id="SDT" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
+                <input type="text" value='<?php echo $TTnv['SDT'];?>' name="SDT" id="SDT" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="Email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
-                <input type="email" name="Email" id="Email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
+                <input type="email" value='<?php echo $TTnv['Email'];?>' name="Email" id="Email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="ngaySinh" class="text-sm mb-2 block text-base font-medium text-gray-900">
                         Ngày sinh
                         </label>
-                        <input type="date" name="ngaySinh" id="ngaySinh"
+                        <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngaySinh" id="ngaySinh"
                             class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                     </div>
 
                     <div class="mb-4 ">
             <label for="gioiTinh" class="block text-gray-900 font-medium mb-2">Giới tính</label>
-            <select id="gioiTinh" name="gioiTinh"
+            
+            <select value='<?php echo $TTnv['gioiTinh'];?>' id="gioiTinh" name="gioiTinh"
                 class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
                 <option value="">Chọn giới tính</option>
-                <option value="F">Nữ</option>
-                <option value="M">Nam</option>
+                <?php
+                  if($TTnv['gioiTinh'] == 'M'){
+                    echo '
+                      <option value="F">Nữ</option>
+                      <option value="M" selected>Nam</option>
+                    ';
+                  }else{
+                    echo '
+                      <option value="F" selected>Nữ</option>
+                      <option value="M" >Nam</option>
+                    ';
+                  }
+                ?>
+                
             </select>
         </div>
             <div class="col-span-full">
-                <label for="DiaChi" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
-                <textarea id="DiaChi" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Địa chỉ"></textarea>
+                <label name='DiaChi' for="DiaChi" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
+                <textarea id="DiaChi"  rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Địa chỉ"><?php echo $TTnv['DiaChi'];?></textarea>
             </div>
         </div>
         <div class="flex justify-center mb-4 mt-4">

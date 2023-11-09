@@ -53,7 +53,6 @@
                                     <td>'.$row['gioiTinh'].'</td>
                                     <td>'.$row['ngaySinh'].'</td>
                                     <td>'.$row['SDT'].'</td>
-                                    <td>'.$row['MatKhau'].'</td>
                                     <td>
                                         <a href="###" ><i class="fa-solid fa-trash"></i></a>
                                     </td>

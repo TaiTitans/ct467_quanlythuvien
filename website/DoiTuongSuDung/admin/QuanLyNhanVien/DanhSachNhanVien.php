@@ -31,7 +31,6 @@
         </header>
         <main>
             <div>
-                <a href="">Thêm đọc giả</a>
                 
                 <table>
                     <tr class="TieuDeBang">
@@ -74,7 +73,7 @@
                                 echo'</tr>';/*<?php echo json_encode($row['UserID']); ?>*/
                         }
                     ?> 
-                </table>a
+                </table>
             </div>
         </main>
         <footer></footer>
