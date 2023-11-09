@@ -126,7 +126,6 @@
                                 <p>Mô tả</p>
                                 <textarea name="MoTa"  cols="30" rows="10"> <?php echo $TTsach['MoTa'];?>
                                 </textarea>
-                                
                             </td>
                         </tr>
                     </table>
