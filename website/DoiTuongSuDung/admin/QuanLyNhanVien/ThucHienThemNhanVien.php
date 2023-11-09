@@ -18,7 +18,7 @@
     echo '<p>Địa chỉ: '.$_POST['address'].'</p>';
     echo '<p>Mật khẩu: '.$_POST['password'].'</p>';*/
 
-    //Thực hiện thêm tìa khoản nhân viên vào hệ thống
+    //Thực hiện thêm tài khoản nhân viên vào hệ thống
     $SQLnv = "INSERT INTO nhanvien(IDnhanVien,hoTen,gioiTinh,ngaySinh,SDT,DiaChi,Email) 
     VALUES('".$maMoi."','".$_POST['full-name']."','".$_POST['gender']."','".$_POST['birthdate']."','".$_POST['phone']."','".$_POST['address']."','".$_POST['email']."')";
     $ThucHIen1 = TruyVan($SQLnv);

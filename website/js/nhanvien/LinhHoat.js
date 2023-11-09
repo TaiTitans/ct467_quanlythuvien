@@ -15,3 +15,19 @@ function XacNhanXoaNhanVien(msnv){
     }
   })
 }
+
+function XacNhanXoaDocGia(idDocGia) {
+  Swal.fire({
+      title: 'Bạn chắc chắn muốn xóa độc giả?',
+      text: 'Dữ liệu sẽ bị mất vĩnh viễn!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xóa',
+      cancelButtonText: 'Hủy',
+  }).then((result) => {
+      if (result.isConfirmed) {
+          // Chuyển hướng tới trang xử lý xóa độc giả với IDdocGia được truyền
+          window.location.href = 'XoaDocGia.php?IDdocgia=' + idDocGia;
+      }
+  })
+}

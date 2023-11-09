@@ -20,8 +20,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!--Jquery-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../../../js/nhanvien/LinhHoat.js"></script>
+
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        
     <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
     </head>
     <body>
@@ -52,14 +56,18 @@
                                     <td>'.$row['hoTen'].'</td>
                                     <td>'.$row['gioiTinh'].'</td>
                                     <td>'.$row['ngaySinh'].'</td>
-                                    <td>'.$row['SDT'].'</td>
+                                    <td>'.$row['SDT'].'</td>';
+                    ?> 
                                     <td>
-                                        <a href="#" ><i class="fa-solid fa-trash"></i></a>
+                                        <button type="button" onclick='XacNhanXoaDocGia(<?php echo json_encode($row["IDdocGia"]);?>)'>
+                                            <i class="fa-solid fa-trash"></i></button>
+                                        </button>
                                     </td>
                                     <td>
                                         <a href="./ChinhSuaThongTinDocGia.php"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
-                                </tr>';
+                    <?php
+                                echo '</tr>';
                         }
                     ?>
                 </table>

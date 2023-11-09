@@ -15,7 +15,7 @@ $(document).ready(function() {
         var phoneInput = $('#phone');
         var addressInput = $('#address');
         
-        if (fullNameInput.val() === '' || usernameInput.val() === '' || birthdateInput.val() === '' || phoneInput.val() === '' || addressInput.val() === '') {
+        if (fullNameInput.val() === '' || usernameInput.val() === '' || birthdateInput.val() === '' || phoneInput.val() === '' || addressInput.val() === '' || passwordInput.val() === '' || confirmPasswordInput.val() === '') {
             alert("Vui lòng điền đầy đủ các trường.");
         } else if (passwordInput.val() !== confirmPasswordInput.val()) {
             passwordError.text("Mật khẩu bạn vừa nhập không khớp.");
