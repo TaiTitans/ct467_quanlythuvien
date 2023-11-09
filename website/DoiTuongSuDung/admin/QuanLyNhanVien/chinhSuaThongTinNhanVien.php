@@ -3,45 +3,66 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinh Sua Nhan Vien</title>
+    <title>Chỉnh sửa thông tin nhân viên</title>
     <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
         <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
         <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-
         <!--
           PHP
         -->
+
+        <script>
+    function kiemTraVaGuiMau() {
+        var IDnhanvien = document.getElementById("IDnhanvien").value;
+        var hoTen = document.getElementById("hoTen").value;
+        var gioiTinh = document.getElementById("gioiTinh").value;
+        var ngaySinh = document.getElementById("ngaySinh").value;
+        var SDT = document.getElementById("SDT").value;
+        var Email = document.getElementById("Email").value;
+        var DiaChi = document.getElementById("DiaChi").value;
+
+
+        if (IDnhanvien === "" || hoTen === "" || gioiTinh === "" || ngaySinh === "" || SDT === "" || Email === "" || DiaChi === "") {
+            alert("Vui lòng điền đủ thông tin trong các trường bắt buộc.");
+        } else {
+            // Thực hiện xử lý mẫu ở đây
+            document.forms[0].submit(); // Gửi mẫu nếu thông tin đã được điền đủ
+        }
+    }
+</script>
         <?php
-                                                   include('../../../php/ConnectMySQL.php');
-                                                   include('../../../php/CacHamXuLy.php');
-              //include('DanhSachNhanVien.php');
-                                $msnv = $_GET['MSNV'];
-                                $TTnv = identifyNhanVien($msnv);
+include('../../../php/ConnectMySQL.php');
+include('../../../php/CacHamXuLy.php');
+$msnv = $_GET['MSNV'];
+$TTnv = identifyNhanVien($msnv);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $IDnhanVien = $_POST['IDnhanVien'];
+    $hoTen = $_POST['hoTen'];
+    $gioiTinh = $_POST['gioiTinh'];
+    $ngaySinh = $_POST['ngaySinh'];
+    $SDT = $_POST['SDT'];
+    $Email = $_POST['Email'];
+    $DiaChi = $_POST['DiaChi'];
 
-                                if(isset($_POST['luuThongTin'])){
-                                  $IDnhanVien = $_POST['$IDnhanVien'];
-                                  $hoTen = $_POST['$hoTen'];
-                                  $gioiTinh = $_POST['$gioiTinh'];
-                                  $ngaySinh = $_POST['$ngaySinh'];
-                                  $SDT = $_POST['$SDT'];
-                                  $DiaChi = $_POST['$DiaChi'];
-                                  $Email = $_POST['$Email'];
+    $sql = "UPDATE nhanvien SET IDnhanVien='$IDnhanVien', hoTen='$hoTen', gioiTinh='$gioiTinh', ngaySinh='$ngaySinh', SDT='$SDT', DiaChi='$DiaChi', Email='$Email' WHERE IDnhanVien='$IDnhanVien'";
+    TruyVan($sql);
+    if (mysqli_query($connection, $sql)) {
+      echo "
+      <script>
+          alert('Thêm thành công');
+      </script>
+  ";
+    } else {
+      echo "
+      <script>
+          alert('Thêm thất bại');
+      </script>
+  ";
+    }
+}
+?>
 
-                                  $sql = "UPDATE nhanvien SET IDnhanVien='$IDnhanVien',hoTen='$hoTen',gioiTinh='$gioiTinh',ngaySinh='$ngaySinh',SDT='$SDT',DiaChi='$DiaChi',Email='$Email' where IDnhanVien='$IDnhanVien'";
-
-
-                                  if (mysqli_query($connection, $sql)) {
-                                    echo "Cập nhật dữ liệu thành công!";
-                                } else {
-                                    echo "Có lỗi xảy ra: " . mysqli_error($connection);
-                                }
-                            
-                                // Đóng kết nối với cơ sở dữ liệu
-                                mysqli_close($connection);
-
-                                }
-        ?>
     </head>
     <body>
     <script>
@@ -160,10 +181,9 @@
         </div>
 
 <div class="p-6 space-y-6">
-    <form action="#">
+    <form action="#" method="post">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
-<<<<<<< HEAD
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
                 <input type="text" value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
             </div>
@@ -178,37 +198,20 @@
             <div class="col-span-6 sm:col-span-3">
                 <label for="Email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
                 <input type="email" value='<?php echo $TTnv['Email'];?>' name="Email" id="Email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
-=======
-                <label for="product-name" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
-                <input type="text" name="product-name" id="product-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="1234" required="">
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label for="category" class="text-sm font-medium text-gray-900 block mb-2">Họ và tên</label>
-                <input type="text" name="category" id="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label for="brand" class="text-sm font-medium text-gray-900 block mb-2">SDT</label>
-                <input type="text" name="brand" id="brand" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
-                <input type="email" name="price" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
->>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
                         Ngày sinh
                         </label>
-<<<<<<< HEAD
+
                         <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngaySinh" id="ngaySinh"
-=======
+
                         <input type="date" name="date" id="date"
->>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
                             class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                     </div>
 
                     <div class="mb-4 ">
-<<<<<<< HEAD
+
             <label for="gioiTinh" class="block text-gray-900 font-medium mb-2">Giới tính</label>
             
             <select value='<?php echo $TTnv['gioiTinh'];?>' id="gioiTinh" name="gioiTinh"
@@ -231,30 +234,17 @@
             </select>
         </div>
             <div class="col-span-full">
-                <label name='DiaChi' for="DiaChi" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
-                <textarea id="DiaChi"  rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Địa chỉ"><?php echo $TTnv['DiaChi'];?></textarea>
-=======
-            <label for="gender" class="block text-gray-900 font-medium mb-2">Giới tính</label>
-            <select id="gender" name="gender"
-                class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
-                <option value="">Chọn giới tính</option>
-                <option value="male">1</option>
-                <option value="female">0</option>
-            </select>
-        </div>
-            <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
-                <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"></textarea>
->>>>>>> a1874ed3f41da31412303263d7fb0050fb3dfeda
+                <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"><?php echo $TTnv['DiaChi'];?></textarea>
             </div>
         </div>
     </form>
 </div>
 
 <div class="flex justify-center mb-4">
-            <a class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring" href="/">
-                Lưu thông tin
-            </a>
+<button onclick="kiemTraVaGuiMau()" type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+    Lưu thông tin
+</button>
         </div>
 
 </body>
