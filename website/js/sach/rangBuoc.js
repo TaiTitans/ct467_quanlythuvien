@@ -3,7 +3,7 @@
 function BieuMauThemSach(){
     var date = new Date();
     //alert(date.getFullYear());
-    let bieuMau = document.forms['BieuMauThemSach'];
+    let bieuMau = document.forms['BieuMauThemSach1'];
     //Kiểm tra tên sách
     let tenSach = bieuMau['tenSach'];
     if(tenSach.value.length == 0){

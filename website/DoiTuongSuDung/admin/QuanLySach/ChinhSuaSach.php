@@ -35,9 +35,8 @@
             echo "<p>ID sách: ".$IDsach."</p>";
 
             $TTsach = ID_Sach($IDsach);
-
-            mysqli_next_result($connect);
-            $IDtacGia = identifyTacGia($TTsach['IDtacGia']); 
+            $IDtacGia = $TTsach['IDTacGia']; 
+            echo '<p>ID Tác giả: '.$IDtacGia.'</p>';
         ?>  
     </head>
     <body>
@@ -70,28 +69,14 @@
                             <td>
                                 <p>Tác giả:  </p>
                                 <?php
-                                    $LayTacGia = "SELECT * FROM tacgia";
-                                    $act_LayTacGia = TruyVan($LayTacGia);
-                                    mysqli_next_result($connect);
-
-                                    echo '<select name="tacGia">';
-
-                                    while($row = mysqli_fetch_array($act_LayTacGia)){
-                                        mysqli_next_result($connect);
-                                        $tenTG = identifyTacGia($row['IDTacGia'])['hoTen'];
-
-                                        if($row['IDTacGia'] == $IDtacGia ){
-                                            echo '<option value ='.$row['IDTacGia'].' selected>'.$tenTG.'</option>';
-                                        }else{
-                                            echo '<option value ='.$row['IDTacGia'].' >'.$tenTG.'</option>';
-                                        }
-                                    }
-                                    echo '</select>';
+                                    
                                 ?>
                             </td>
-                            <td> <option value="" selected></option>
+                            <td>
                                 <p>Thể loại:</p>
-
+                                <?php
+                                    
+                                ?>
                             </td>
                         </tr>
                         <tr>
