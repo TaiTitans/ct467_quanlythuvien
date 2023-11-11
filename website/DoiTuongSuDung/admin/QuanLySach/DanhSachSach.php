@@ -154,6 +154,7 @@
                             <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Mô tả</th>
+                            <th>Số lượng sách</th>
                             <th>Delete</th>
                             <th>Cập nhật</th>
                         </tr>
@@ -164,6 +165,9 @@
                             include('../../../php/CacHamXuLy.php');
                             $TTSach = infSach();
                             while($row = mysqli_fetch_array($TTSach)){
+                                mysqli_next_result($connect);
+                                $soLuongSach = ID_SoLuongSach($row['idSach']);
+                                mysqli_next_result($connect);
                                 echo'<tr>
                                         <td>'.$row['idSach'].'</td>
                                         <td>'.$row['tenSach'].'</td>
@@ -172,6 +176,7 @@
                                         <td>'.identifyTacGia($row['IDtacGia'])['hoTen'].'</td>
                                         <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
                                         <td>'.$row['MoTa'].'</td>
+                                        <td>'.$soLuongSach.'</td>
                                         <td>
                                             <a href="###" ><i class="fa-solid fa-trash"></i></a>
                                         </td>
@@ -191,6 +196,7 @@
                             <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Mô tả</th>
+                            <th>Số lượng sách</th>
                             <th>Delete</th>
                             <th>Cập nhật</th>
                         </tr>

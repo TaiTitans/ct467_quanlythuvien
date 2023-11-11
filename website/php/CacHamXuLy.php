@@ -237,4 +237,11 @@
                 WHERE UserID = '$msnv'";
         return mysqli_fetch_array(TruyVan($sql));
     }
+
+    //24. Lấy số lượng sách dựa trên ID
+    function ID_SoLuongSach($idsach){
+        $sql = "call qlthuvien.Count_Book_BY_ChiTietSach('$idsach')";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien)['Count_Book'];
+    }
 ?>
