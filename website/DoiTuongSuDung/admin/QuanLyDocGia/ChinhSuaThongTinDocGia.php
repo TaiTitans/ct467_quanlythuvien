@@ -31,6 +31,7 @@
 include('../../../php/ConnectMySQL.php');
 include('../../../php/CacHamXuLy.php');
 $msdg = $_GET['MSDG'];
+echo $msdg;
 $TTdg = identifydocGia($msdg);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $IDdocGia = $_POST['IDdocGia'];
@@ -182,48 +183,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <div class="col-span-6 sm:col-span-3">
                 <label for="hoTen" class="text-sm font-medium text-gray-900 block mb-2">Họ và tên</label>
-                <input type="text" value="<?php echo $TTdg['ngaySinh']; ?>" name="hoTen" id="hoTen" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
+                <input type="text" value="<?php echo $TTdg['hoTen']; ?>" name="hoTen" id="hoTen" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Nguyen Van A" required="">
               </div>
               <div class="col-span-6 sm:col-span-3">
-                <label for="brand" class="text-sm font-medium text-gray-900 block mb-2">SDT</label>
-                <input type="text" name="brand" id="brand" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
+                <label for="SDT" class="text-sm font-medium text-gray-900 block mb-2">SDT</label>
+                <input type="text" value="<?php echo $TTdg['SDT']; ?>" name="SDT" id="SDT" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="03xxxxxxxxx" required="">
               </div>
-              <div class="col-span-6 sm:col-span-3">
+              <!-- <div class="col-span-6 sm:col-span-3">
                 <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
                 <input type="email" name="price" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
-              </div>
+              </div> -->
               <div class="col-span-6 sm:col-span-3">
-                <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
+                <label for="ngaySinh" class="text-sm mb-2 block text-base font-medium text-gray-900">
                   Ngày sinh
                 </label>
-                <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
+                <input type="date" value="<?php echo $TTdg['ngaySinh']; ?>" name="ngaySinh" id="ngaySinh" class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
               </div>
 
               <div class="mb-4 ">
-                <label for="gender" class="block text-gray-900 font-medium mb-2">Giới tính</label>
-                <select id="gender" name="gender" class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
+                <label for="gioiTinh" class="block text-gray-900 font-medium mb-2">Giới tính</label>
+                <select value="<?php echo $TTdg['gioiTinh']; ?>" id="gioiTinh" name="gioiTinh" class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
                   <option value="">Chọn giới tính</option>
-                  <option value="male">1</option>
-                  <option value="female">0</option>
+                  <?php
+                  if ($TTdg['gioiTinh'] == 'M') {
+                    echo '
+                      <option value="F">Nữ</option>
+                      <option value="M" selected>Nam</option>
+                    ';
+                  } else {
+                    echo '
+                      <option value="F" selected>Nữ</option>
+                      <option value="M" >Nam</option>
+                    ';
+                  }
+                  ?>
                 </select>
               </div>
-              <div class="col-span-full">
+              <!-- <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
                 <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"></textarea>
-              </div>
+              </div> -->
             </div>
           </form>
         </div>
 
         <div class="flex justify-center mb-4">
-          <a class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring" href="/">
+          <button onclick="kiemTraVaGuiMau()" type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
             Lưu thông tin
+          </button>
+          <a class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring" href="./DanhSachDocGia.php">
+            quay lại
           </a>
         </div>
-        <?php
-        print($msdg);
-        ?>
-
 </body>
 
 </html>
