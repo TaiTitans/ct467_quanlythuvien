@@ -126,7 +126,7 @@
             <div class="sm:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Trang chủ</a>
+                    <a href="../../../../Librarian_Project/code/dist/trangchu.html" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Trang chủ</a>
                 </div>
             </div>
         </nav>
@@ -158,10 +158,10 @@
                 <div class="p-6 space-y-6">
                     <form action="#" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="grid grid-cols-6 gap-6">
-                            <div class="col-span-6 sm:col-span-3">
+                            <!-- <div class="col-span-6 sm:col-span-3">
                                 <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
                                 <input type="text" value='<?php echo $TTdg['IDdocGia']; ?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                            </div>
+                            </div> -->
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="IDsach" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
                                 <input type="text" value='<?php echo $TTsach['teenSach']; ?>' name="IDsach" id="IDsach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
@@ -177,22 +177,23 @@
 
                                 <input type="date" value='<?php echo $TTnv['ngaySinh']; ?>' name="ngayMuon" id="ngayMuon" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                             </div>
-                            <div class="col-span-6 sm:col-span-3">
+                            <!-- <div class="col-span-6 sm:col-span-3">
                                 <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
                                     Ngày Trả
                                 </label>
 
                                 <input type="date" value='<?php echo $TTnv['ngaySinh']; ?>' name="ngayTra" id="ngayTra" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
-                            </div>
+                            </div> -->
 
                         </div>
                         <div class="flex justify-center mb-4 mt-10">
                             <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
                                 Lưu thông tin
                             </button>
-                            <button href="DanhSachNhanVien.php" type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-                                Quay lại
+                            <button type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+                                <a href="../../admin/QuanLyNhanVien/TrangChuNhanVien.php" >Quay lại</a>
                             </button>
+
                     </form>
                 </div>
 
