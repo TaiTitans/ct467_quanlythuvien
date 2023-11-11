@@ -18,8 +18,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
         <!--Jquery-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script defer src="../../../js/sach/CauHinhBang.js"></script>
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
@@ -33,40 +39,57 @@
                 <a href="./ThemSach.php">Thêm sách</a>
 
                 
-                <table>
-                    <tr class="TieuDeBang">
-                        <th>ID sách</th>
-                        <th>Tên sách</th>
-                        <th>Năm xuất bản</th>
-                        <th>Nhà xuất bản</th>
-                        <th>Tác giả</th>
-                        <th>Thể loại</th>
-                        <th>Mô tả</th>
-                        <th>Delete</th>
-                        <th>Cập nhật</th>
-                    </tr>
-                    <?php
-                        include('../../../php/ConnectMySQL.php');
-                        include('../../../php/CacHamXuLy.php');
-                        $TTSach = infSach();
-                        while($row = mysqli_fetch_array($TTSach)){
-                            echo'<tr>
-                                    <td>'.$row['idSach'].'</td>
-                                    <td>'.$row['tenSach'].'</td>
-                                    <td>'.$row['namXuatBan'].'</td>
-                                    <td>'.identifyNhaXuatBan($row['idNXB'])['TenNXB'].'</td>
-                                    <td>'.identifyTacGia($row['IDtacGia'])['hoTen'].'</td>
-                                    <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
-                                    <td>'.$row['MoTa'].'</td>
-                                    <td>
-                                        <a href="###" ><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="ChinhSuaSach.php?ID='.$row['idSach'].'"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                                </tr>';
-                        }
-                    ?>
+                <table id="CanChinhDanhSachSach">
+                    <thead>
+                        <tr class="TieuDeBang">
+                            <th>ID sách</th>
+                            <th>Tên sách</th>
+                            <th>Năm xuất bản</th>
+                            <th>Nhà xuất bản</th>
+                            <th>Tác giả</th>
+                            <th>Thể loại</th>
+                            <th>Mô tả</th>
+                            <th>Delete</th>
+                            <th>Cập nhật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include('../../../php/ConnectMySQL.php');
+                            include('../../../php/CacHamXuLy.php');
+                            $TTSach = infSach();
+                            while($row = mysqli_fetch_array($TTSach)){
+                                echo'<tr>
+                                        <td>'.$row['idSach'].'</td>
+                                        <td>'.$row['tenSach'].'</td>
+                                        <td>'.$row['namXuatBan'].'</td>
+                                        <td>'.identifyNhaXuatBan($row['idNXB'])['TenNXB'].'</td>
+                                        <td>'.identifyTacGia($row['IDtacGia'])['hoTen'].'</td>
+                                        <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
+                                        <td>'.$row['MoTa'].'</td>
+                                        <td>
+                                            <a href="###" ><i class="fa-solid fa-trash"></i></a>
+                                        </td>
+                                        <td>
+                                            <a href="ChinhSuaSach.php?ID='.$row['idSach'].'"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        </td>
+                                    </tr>';
+                            }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr class="TieuDeBang">
+                            <th>ID sách</th>
+                            <th>Tên sách</th>
+                            <th>Năm xuất bản</th>
+                            <th>Nhà xuất bản</th>
+                            <th>Tác giả</th>
+                            <th>Thể loại</th>
+                            <th>Mô tả</th>
+                            <th>Delete</th>
+                            <th>Cập nhật</th>
+                        </tr>
+                    </tfoot>    
                 </table>
             </div>
         </main>
