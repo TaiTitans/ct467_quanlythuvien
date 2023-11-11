@@ -13,9 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE docgia SET IDdocGia='" . $IDdocGia . "', hoTen='" . $hoTen . "', gioiTinh='" . $gioiTinh . "', ngaySinh='" . $ngaySinh . "', SDT='" . $SDT . "' 
   WHERE IDdocGia='$IDdocGia'";
-    $sql1 = "UPDATE TABLE docgia(hoTen,gioiTinh,ngaySinh,SDT) 
-  VALUES('" . $hoTen . "','" . $gioiTinh . "','" . $ngaySinh . "','" . $SDT . "')
-  WHERE IDdocGia = '$IDdocGia'";
+
+    $sql1 = "UPDATE qlthuvien.docgia
+    SET IDdocGia = '" . $IDdocGia . "',
+        hoTen = '" . $hoTen . "',
+        gioiTinh = '" . $gioiTinh . "',
+        ngaySinh = '" . $ngaySinh . "',
+        SDT = '" . $SDT . "'
+    WHERE IDdocGia = '$IDdocGia'";
     TruyVan($sql1);
     echo '
     <script>
