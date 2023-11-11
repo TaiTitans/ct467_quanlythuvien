@@ -1,0 +1,26 @@
+.themdocgia_button{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#CanChinhDanhSachSach tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#CanChinhDanhSachSach_filter label {
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#CanChinhDanhSachSach_length label {
+    margin-top: 8px;
+    margin-left:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
