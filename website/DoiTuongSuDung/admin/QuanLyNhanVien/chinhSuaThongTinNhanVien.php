@@ -32,36 +32,14 @@
     }
 </script>
         <?php
-include('../../../php/ConnectMySQL.php');
-include('../../../php/CacHamXuLy.php');
-$msnv = $_GET['MSNV'];
-$TTnv = identifyNhanVien($msnv);
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $IDnhanVien = $_POST['IDnhanVien'];
-    $hoTen = $_POST['hoTen'];
-    $gioiTinh = $_POST['gioiTinh'];
-    $ngaySinh = $_POST['ngaySinh'];
-    $SDT = $_POST['SDT'];
-    $Email = $_POST['Email'];
-    $DiaChi = $_POST['DiaChi'];
-
-    $sql = "UPDATE nhanvien SET IDnhanVien='$IDnhanVien', hoTen='$hoTen', gioiTinh='$gioiTinh', ngaySinh='$ngaySinh', SDT='$SDT', DiaChi='$DiaChi', Email='$Email' WHERE IDnhanVien='$IDnhanVien'";
-    TruyVan($sql);
-    if (mysqli_query($connection, $sql)) {
-      echo "
-      <script>
-          alert('Thêm thành công');
-      </script>
-  ";
-    } else {
-      echo "
-      <script>
-          alert('Thêm thất bại');
-      </script>
-  ";
-    }
-}
-?>
+            include('../../../php/ConnectMySQL.php');
+            include('../../../php/CacHamXuLy.php');
+            $msnv = $_GET['MSNV'];
+            
+            $TTnv = identifyNhanVien($msnv);
+            mysqli_next_result($connect);
+            $taiKhoan= msnv_TaiKhoan($msnv);
+        ?>
 
     </head>
     <body>
@@ -181,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
 <div class="p-6 space-y-6">
-    <form action="#" method="post">
+    <form action="ThucHienChinhSuaNhanVien.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
@@ -201,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="MatKhau" class="text-sm font-medium text-gray-900 block mb-2">Mật khẩu</label>
-                <input type="password" value='<?php echo $TTnv['MatKhau'];?>' name="MatKhau" id="MatKhau" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="******" required="">
+                <input type="text" value='<?php echo $taiKhoan['MatKhau'];?>' name="MatKhau" id="MatKhau" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="******" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
@@ -241,11 +219,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="UserRole" class="block text-gray-900 font-medium mb-2">Role</label>
             
-            <select value='<?php echo $TTnv['UserRole'];?>' id="UserRole" name="UserRole"
+            <select disabled id="UserRole" name="UserRole"
                 class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
                 <option value="">Chọn Role</option>
                 <?php
-                  if($TTnv['UserRole'] == '0'){
+                  if($taiKhoan['UserRole'] == '0'){
                     echo '
                       <option value="1">Nhân viên</option>
                       <option value="0" selected>Admin</option>
@@ -262,20 +240,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
-                <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"><?php echo $TTnv['DiaChi'];?></textarea>
+                <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details" name="DiaChi"><?php echo $TTnv['DiaChi'];?></textarea>
             </div>
+        </div>
+        <div class="flex justify-center mb-4">
+          <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+              Lưu thông tin
+          </button>
+          <button href="DanhSachNhanVien.php"type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+              Quay lại
+          </button>
         </div>
     </form>
 </div>
 
-<div class="flex justify-center mb-4">
-<button onclick="kiemTraVaGuiMau()" type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-    Lưu thông tin
-</button>
-<button href="DanhSachNhanVien.php" button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-    Quay lại
-</button>
-        </div>
+
 
 </body>
 

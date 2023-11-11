@@ -10,9 +10,14 @@
     $idTheLoai = $_POST['idTheLoai'];
     $moTa = $_POST['MoTa'];
 
-    $CauLenhUpload = "UPDATE TABLE Sach(tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai) 
-                    VALUES('".$tenSach."','".$Nam."','".$NXB."','".$IDTacGia."','".$idTheLoai."','".$moTa."')
-                    WHERE idSach = '$idsach'";
+    $CauLenhUpload = "UPDATE Sach
+    SET tenSach = '$tenSach', 
+        MoTa = '$moTa', 
+        namXuatBan = '$Nam', 
+        idNXB = '$NXB', 
+        IDtacGia = '$IDTacGia', 
+        idTheLoai = '$idTheLoai'
+    WHERE idSach = '$idsach'";
     TruyVan($CauLenhUpload);
 
     //Thoat
