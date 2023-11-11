@@ -218,6 +218,11 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien);
     }
+    function identifydocGia($msdg){
+        $sql = "CALL qlthuvien.Find_ID_DocGia('$msdg')";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien);
+    }
 
     //22. lấy thông tin thể loại
     function LayThongTinTheLoai($msnv){

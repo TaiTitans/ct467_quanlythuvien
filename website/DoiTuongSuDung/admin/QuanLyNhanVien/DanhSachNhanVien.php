@@ -23,7 +23,13 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="../../../js/nhanvien/LinhHoat.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script defer src="../../../js/nhanvien/CauHinhNhanVien.js"></script>
         <!--CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
     </head>
@@ -33,49 +39,66 @@
         <main>
             <div>
                 <a href="">Thêm Nhân Viên</a>
+                <table id="CanChinhDanhNhanVien">
+                    <thead>
+                        <tr class="TieuDeBang">
+                            <th>UserID/Mã đọc giả</th>
+                            <th>Họ tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
+                            <th>Địa chỉ</th>
+                            <th>Mật khẩu</th>
+                            <th>Delete</th>
+                            <th>Cập nhật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        
+                            include('../../../php/ConnectMySQL.php');
+                            include('../../../php/CacHamXuLy.php');
+                            $TTdocGia = infNhanVien();
+                            while($row = mysqli_fetch_array($TTdocGia)){
+                                echo'<tr>
+                                        <td>'.$row['UserID'].'</td>
+                                        <td>'.$row['hoTen'].'</td>
+                                        <td>'.$row['gioiTinh'].'</td>
+                                        <td>'.$row['ngaySinh'].'</td>
+                                        <td>'.$row['SDT'].'</td>
+                                        <td>'.$row['Email'].'</td>
+                                        <td>'.$row['DiaChi'].'</td>
+                                        <td>'.$row['MatKhau'].'</td>';
+                        ?>
+                                        <td>
+                                            <button type="button" onclick='XacNhanXoaNhanVien(<?php echo json_encode($row["UserID"]);?>)'>
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <a href="/website/DoiTuongSuDung/admin/QuanLyNhanVien/chinhSuaThongTinNhanVien.php?MSNV=<?php echo $row['UserID'];?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        </td>
+                        <?php        
+                                    echo'</tr>';/*<?php echo json_encode($row['UserID']); ?>*/
+                            }
+                        ?>
+                        </tbody>
+                        <tfoot>
+                            <tr class="TieuDeBang">
+                                <th>UserID/Mã đọc giả</th>
+                                <th>Họ tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Địa chỉ</th>
+                                <th>Mật khẩu</th>
+                                <th>Delete</th>
+                                <th>Cập nhật</th>
+                            </tr>
+                        </tfoot> 
                 
-                <table>
-                    <tr class="TieuDeBang">
-                        <th>UserID/Mã đọc giả</th>
-                        <th>Họ tên</th>
-                        <th>Giới tính</th>
-                        <th>Ngày sinh</th>
-                        <th>Số điện thoại</th>
-                        <th>Email</th>
-                        <th>Địa chỉ</th>
-                        <th>Mật khẩu</th>
-                        <th>Delete</th>
-                        <th>Cập nhật</th>
-                    </tr>
-                    <?php
-                    
-                        include('../../../php/ConnectMySQL.php');
-                        include('../../../php/CacHamXuLy.php');
-                        $TTdocGia = infNhanVien();
-                        while($row = mysqli_fetch_array($TTdocGia)){
-                            echo'<tr>
-                                    <td>'.$row['UserID'].'</td>
-                                    <td>'.$row['hoTen'].'</td>
-                                    <td>'.$row['gioiTinh'].'</td>
-                                    <td>'.$row['ngaySinh'].'</td>
-                                    <td>'.$row['SDT'].'</td>
-                                    <td>'.$row['Email'].'</td>
-                                    <td>'.$row['DiaChi'].'</td>
-                                    <td>'.$row['MatKhau'].'</td>';
-                    ?>
-                                    <td>
-                                        <button type="button" onclick='XacNhanXoaNhanVien(<?php echo json_encode($row["UserID"]);?>)'>
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <a href="/website/DoiTuongSuDung/admin/QuanLyNhanVien/chinhSuaThongTinNhanVien.php?MSNV=<?php echo $row['UserID'];?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                    <?php        
-                                echo'</tr>';/*<?php echo json_encode($row['UserID']); ?>*/
-                        }
-                    ?> 
-                </table>
             </div>
         </main>
         <footer></footer>

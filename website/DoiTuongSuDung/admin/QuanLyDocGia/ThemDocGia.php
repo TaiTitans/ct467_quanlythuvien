@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm đọc giả</title>
+    <title>Thêm độc giả</title>
     <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
 
     <!--Bootstrap-->
@@ -73,7 +73,7 @@
                     <input type="text" id="SDT" name="SDT" placeholder="SĐT" required>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Thêm nhân viên">
+                    <input type="submit" value="Thêm Độc Giả">
                 </div>
             </form>
             <?php
