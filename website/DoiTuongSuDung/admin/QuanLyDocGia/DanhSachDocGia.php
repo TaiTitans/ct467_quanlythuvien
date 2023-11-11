@@ -18,15 +18,23 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
         <!--Jquery-->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="../../../js/nhanvien/LinhHoat.js"></script>
+        <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script defer src="../../../js/nhanvien/LinhHoat.js"></script>
+        <script async src="../../../js/DungChung.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         
-    <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
+        <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
     </head>
     <body>
         <header>
@@ -36,40 +44,55 @@
             <div>
                 <a href="./ThemDocGia.php">Thêm đọc giả</a>
                 
-                <table>
-                    <tr class="TieuDeBang">
-                        <th>UserID/Mã đọc giả</th>
-                        <th>Họ tên</th>
-                        <th>Giới tính</th>
-                        <th>Ngày sinh</th>
-                        <th>Số điện thoại</th>
-                        <th>Delete</th>
-                        <th>Cập nhật</th>
-                    </tr>
-                    <?php
-                        include('../../../php/ConnectMySQL.php');
-                        include('../../../php/CacHamXuLy.php');
-                        $TTdocGia = infDocGia();
-                        while($row = mysqli_fetch_array($TTdocGia)){
-                            echo'<tr>
-                                    <td>'.$row['IDdocGia'].'</td>
-                                    <td>'.$row['hoTen'].'</td>
-                                    <td>'.$row['gioiTinh'].'</td>
-                                    <td>'.$row['ngaySinh'].'</td>
-                                    <td>'.$row['SDT'].'</td>';
-                    ?> 
-                                    <td>
-                                        <button type="button" onclick='XacNhanXoaDocGia(<?php echo json_encode($row["IDdocGia"]);?>)'>
-                                            <i class="fa-solid fa-trash"></i></button>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <a href="./ChinhSuaThongTinDocGia.php"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                    <?php
-                                echo '</tr>';
-                        }
-                    ?>
+                <table id='example' class="table table-striped">
+                    <thead>
+                        <tr class="TieuDeBang">
+                            <th>UserID/Mã đọc giả</th>
+                            <th>Họ tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Số điện thoại</th>
+                            <th>Delete</th>
+                            <th>Cập nhật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include('../../../php/ConnectMySQL.php');
+                            include('../../../php/CacHamXuLy.php');
+                            $TTdocGia = infDocGia();
+                            while($row = mysqli_fetch_array($TTdocGia)){
+                                echo'<tr>
+                                        <td>'.$row['IDdocGia'].'</td>
+                                        <td>'.$row['hoTen'].'</td>
+                                        <td>'.$row['gioiTinh'].'</td>
+                                        <td>'.$row['ngaySinh'].'</td>
+                                        <td>'.$row['SDT'].'</td>';
+                        ?> 
+                                        <td>
+                                            <button type="button" onclick='XacNhanXoaDocGia(<?php echo json_encode($row["IDdocGia"]);?>)'>
+                                                <i class="fa-solid fa-trash"></i></button>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <a href="./ChinhSuaThongTinDocGia.php"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        </td>
+                        <?php
+                                    echo '</tr>';
+                            }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr class="TieuDeBang">
+                            <th>UserID/Mã đọc giả</th>
+                            <th>Họ tên</th>
+                            <th>Giới tính</th>
+                            <th>Ngày sinh</th>
+                            <th>Số điện thoại</th>
+                            <th>Delete</th>
+                            <th>Cập nhật</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </main>

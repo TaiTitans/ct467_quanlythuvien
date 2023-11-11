@@ -11,6 +11,13 @@
     $moTa = $_POST['MoTa'];
 
     $CauLenhUpload = "UPDATE TABLE Sach(tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai) 
-    VALUES('".$tenSach."','".$Nam."','".$NXB."','".$IDTacGia."','".$idTheLoai."','".$moTa."')
-    WHERE idSach = '$idsach'";
+                    VALUES('".$tenSach."','".$Nam."','".$NXB."','".$IDTacGia."','".$idTheLoai."','".$moTa."')
+                    WHERE idSach = '$idsach'";
+    TruyVan($CauLenhUpload);
+
+    //Thoat
+    echo "<script>
+            alert('Cập nhật thành công.');
+            history.back();
+        </script>";
 ?>
