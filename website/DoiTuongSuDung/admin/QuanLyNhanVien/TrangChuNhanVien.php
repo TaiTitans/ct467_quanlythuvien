@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quản lý sách</title>
-        <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ nhân viên</title>
+    <link rel="stylesheet" href="../../../css/Sach/sach.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
         <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
         <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        <!--Bootstrap-->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,15 +20,13 @@
         <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
         <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
         <script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-        <script defer src="../../../js/sach/CauHinhBang.js"></script>m
-        <!--CSS-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
-    <link rel="stylesheet" href="../../../css/danhsachsach.css">
+        <script defer src="../../../js/nhanvien/TrangChuNhanVien.js"></script>
+    <link rel="stylesheet" href="../../../css/trangchunhanvien.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-    </head>
-    <body>
-        <header>
+<body>
+<header>
         <script>
   document.addEventListener('DOMContentLoaded', function () {
   const userMenuButton = document.getElementById('user-menu-button');
@@ -83,9 +73,6 @@
                     <div class="flex space-x-4">
                       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                       <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Trang chủ</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLySach/DanhSachSach.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Kho Sách</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân Viên</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông tin cho mượn</a>
                     </div>
                   </div>
                 </div>
@@ -122,29 +109,25 @@
               <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Trang chủ</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Kho Sách</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Nhân Viên</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Thông Tin Cho Mượn</a>
+
               </div>
             </div>
           </nav>
     </div>
         </div>
         </header>
-        <main>
         <div class="py-6 sm:py-8 lg:py-12">
       <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 mx-8 mb-5">
         <h1 class="text-4xl font-bold text-white mb-4">
-          Danh sách sách
+          Trang chủ nhân viên
         </h1>
         <p class="text-lg text-white mb-8">
           😊
       </div>
-            <div class="bg-gray-200 rounded-lg mt-10 pb-2 px-2 mx-10 layout_main">
-                <a href="./ThemSach.php" class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline themdocgia_button">Thêm sách</a>
+      <div class="bg-gray-200 rounded-lg mt-10 pb-2 px-2 mx-10 layout_main">
 
                 
-                <table id="CanChinhDanhSachSach">
+                <table id="TrangChuNhanVien">
                     <thead>
                         <tr class="TieuDeBang">
                             <th>ID sách</th>
@@ -154,11 +137,10 @@
                             <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Mô tả</th>
-                            <th>Delete</th>
-                            <th>Cập nhật</th>
+                            <th>Ghi nhận</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="TBody">
                         <?php
                             include('../../../php/ConnectMySQL.php');
                             include('../../../php/CacHamXuLy.php');
@@ -173,17 +155,14 @@
                                         <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
                                         <td>'.$row['MoTa'].'</td>
                                         <td>
-                                            <a href="###" ><i class="fa-solid fa-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <a href="ChinhSuaSach.php?ID='.$row['idSach'].'"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="../../NhanVien/GhiNhanMuonSach.php?ID='.$row['idSach'].'"><i class="fa-solid fa-magnifying-glass icon_ghinhan"></i></a>
                                         </td>
                                     </tr>';
                             }
                         ?>
                     </tbody>
                     <tfoot>
-                        <tr class="TieuDeBang">
+                        <!-- <tr class="TieuDeBang">
                             <th>ID sách</th>
                             <th>Tên sách</th>
                             <th>Năm xuất bản</th>
@@ -191,14 +170,39 @@
                             <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Mô tả</th>
-                            <th>Delete</th>
-                            <th>Cập nhật</th>
+                            <th>Ghi nhận</th> -->
                         </tr>
                     </tfoot>    
                 </table>
             </div>
-        </main>
-        <footer></footer>
-    </body>
-</html>
+    </div>
+    <footer class="bg-gray-800 shadow dark:bg-gray-900 z-50 footer_login-page footer_login-page footer_css bottom-0">
+      <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <a href="#" class="flex items-center mb-4 sm:mb-0">
+            <img src="../../../css/favicon.png" class="h-8 mr-3" alt="QLTV Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Quản lý thư viện</span>
+          </a>
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#"
+            class="hover:underline">Nhóm 9™</a>. All Rights Reserved.</span>
+      </div>
+    </footer>
+</body>
 
+</html>
