@@ -11,5 +11,13 @@
     //     // echo '<p>Tên: '.$row['TenTheLoai'].'</p>';
     // }
     // echo '</select>';
-    echo ID_SoLuongSach('S72');
+     //   TaoSoLuongSach(20,'S009');
+    $sql = "SELECT idSach FROM Sach";
+    $LayID = TruyVan($sql);
+    while($row = mysqli_fetch_array($LayID)){
+        mysqli_next_result($connect);
+        // echo '<p>'.ID_SoLuongSach($row['idSach']).'</p>';
+        
+    }
+
 ?>

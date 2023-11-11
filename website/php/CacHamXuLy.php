@@ -244,4 +244,10 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien)['Count_Book'];
     }
+
+    //25. Tạo số lượng sách theo id
+    function TaoSoLuongSach($soLuong,$idsach){
+        $sql = "call qlthuvien.InsertMultipleRecords($soLuong, '$idsach', 0)";
+        $thucHien = TruyVan($sql);
+    }
 ?>
