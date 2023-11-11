@@ -230,4 +230,11 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien);
     }
+
+    //23. Lấy Thông tin tài khoản thông qua ID
+    function msnv_TaiKhoan($msnv){
+        $sql = "SELECT * FROM taikhoan
+                WHERE UserID = '$msnv'";
+        return mysqli_fetch_array(TruyVan($sql));
+    }
 ?>
