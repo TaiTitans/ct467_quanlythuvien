@@ -1,0 +1,51 @@
+#TrangChuNhanVien tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#TrangChuNhanVien_filter label {
+    margin-top: 8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#TrangChuNhanVien_length label {
+    margin-top: 8px;
+    margin-left:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#TrangChuNhanVien_info {
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#TrangChuNhanVien_wrapper .dataTable {
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.TieuDeBang th {
+    color: #000;
+    background-color:#fff;
+
+}
+
+.TBody td{
+    border: solid 1px #000
+}
+.icon_ghinhan{
+    margin-left: 10px;
+}
