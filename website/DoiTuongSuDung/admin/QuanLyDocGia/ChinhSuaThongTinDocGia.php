@@ -31,31 +31,7 @@
 include('../../../php/ConnectMySQL.php');
 include('../../../php/CacHamXuLy.php');
 $msdg = $_GET['MSDG'];
-echo $msdg;
 $TTdg = identifydocGia($msdg);
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $IDdocGia = $_POST['IDdocGia'];
-  $hoTen = $_POST['hoTen'];
-  $gioiTinh = $_POST['gioiTinh'];
-  $ngaySinh = $_POST['ngaySinh'];
-  $SDT = $_POST['SDT'];
-
-  $sql = "UPDATE docgia SET IDdocGia='$IDdocGia', hoTen='$hoTen', gioiTinh='$gioiTinh', ngaySinh='$ngaySinh', SDT='$SDT' WHERE IDdocGia='$IDdocGia'";
-  TruyVan($sql);
-  if (mysqli_query($connection, $sql)) {
-    echo "
-      <script>
-          alert('Thêm thành công');
-      </script>
-  ";
-  } else {
-    echo "
-      <script>
-          alert('Thêm thất bại');
-      </script>
-  ";
-  }
-}
 ?>
 
 <body>
@@ -175,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="p-6 space-y-6">
-          <form action="#">
+          <form action="./ThucHienLuuThongTinDocGia.php?MSDG=<?php echo $msdg; ?> " method="POST">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">
                 <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID</label>
