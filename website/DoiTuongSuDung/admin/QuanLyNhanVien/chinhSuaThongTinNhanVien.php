@@ -200,6 +200,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="email" value='<?php echo $TTnv['Email'];?>' name="Email" id="Email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="example@gmail.com" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
+                <label for="MatKhau" class="text-sm font-medium text-gray-900 block mb-2">Mật khẩu</label>
+                <input type="password" value='<?php echo $TTnv['MatKhau'];?>' name="MatKhau" id="MatKhau" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="******" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
                         Ngày sinh
                         </label>
@@ -207,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngaySinh" id="ngaySinh"
 
                         <input type="date" name="date" id="date"
-                            class="w-full rounded-lg border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
+                            class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                     </div>
 
                     <div class="mb-4 ">
@@ -233,6 +237,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
             </select>
         </div>
+        <div class="mb-4 ">
+
+            <label for="UserRole" class="block text-gray-900 font-medium mb-2">Role</label>
+            
+            <select value='<?php echo $TTnv['UserRole'];?>' id="UserRole" name="UserRole"
+                class="border border-gray-300 p-2 w-full rounded-lg focus:outline-none focus:border-blue-400 shadow-sm p-2.5" required>
+                <option value="">Chọn Role</option>
+                <?php
+                  if($TTnv['UserRole'] == '0'){
+                    echo '
+                      <option value="1">Nhân viên</option>
+                      <option value="0" selected>Admin</option>
+                    ';
+                  }else{
+                    echo '
+                      <option value="1" selected>Nhân viên</option>
+                      <option value="0" >Admin</option>
+                    ';
+                  }
+                ?>
+                
+            </select>
+        </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium text-gray-900 block mb-2">Địa chỉ</label>
                 <textarea id="product-details" rows="6" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="Details"><?php echo $TTnv['DiaChi'];?></textarea>
@@ -244,6 +271,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="flex justify-center mb-4">
 <button onclick="kiemTraVaGuiMau()" type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
     Lưu thông tin
+</button>
+<button href="DanhSachNhanVien.php" button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+    Quay lại
 </button>
         </div>
 
