@@ -178,7 +178,7 @@
                                             </button>
                                         </td>
                                         <td>
-                                            <a href="./ChinhSuaThongTinDocGia.php"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="./ChinhSuaThongTinDocGia.php?MSDG=<?php echo $row['IDdocgia'];?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                         <?php
                                     echo '</tr>';
