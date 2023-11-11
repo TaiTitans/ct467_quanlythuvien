@@ -42,7 +42,7 @@
         </header>
         <main>
             <div>
-                <a href="./ThemDocGia.php">Thêm đọc giả</a>
+                <a href="../QuanLyNhanVien/DangKyTaiKhoan.html">Thêm đọc giả</a>
                 
                 <table id='example' class="table table-striped">
                     <thead>

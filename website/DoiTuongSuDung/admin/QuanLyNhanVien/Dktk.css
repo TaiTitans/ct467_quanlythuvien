@@ -27,6 +27,9 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
+/* qui định màu */
+    background-color: white;
+    /*  */
 }
 
 .body label{
