@@ -135,11 +135,11 @@
         </div>
         </header>
         <main>
-            <div>
+            <div class="bg-gray-300 rounded-lg mt-10 mx-10">
 
         
 
-<a class="mx-2.5 inline-block my-2.5 px-12 py-3 text-sm font-medium text-black bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring" href="./ThemDocGia.php">
+<a class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline" href="./ThemDocGia.php">
   Thêm độc giả
 </a>
 
@@ -147,7 +147,7 @@
            
 
                 
-                <table id='example' class="table table-striped">
+                <table id='example' class="table table-striped rounded-md">
                     <thead>
                         <tr class="TieuDeBang">
                             <th>UserID/Mã đọc giả</th>
