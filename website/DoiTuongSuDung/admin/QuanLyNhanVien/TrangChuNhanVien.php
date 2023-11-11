@@ -24,7 +24,17 @@
     <link rel="stylesheet" href="../../../css/trangchunhanvien.css">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
+<style>
+    .popular_text{
+        padding: 8px;
+        border-radius: 8px;
+        background-color:chocolate;
+        color:#fff;
+    }
+    .trasach_img{
+        height: 225px;
+        }
+    </style>
 <body>
 <header>
         <script>
@@ -37,7 +47,6 @@
       });
     });
   </script>
-
   <div class="header">
     <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -176,6 +185,49 @@
                 </table>
             </div>
     </div>
+    <div class="flex px-3 py-3 items-center justify-center align-content-center">
+
+<a href='../QuanLySach/MuonSach.php'><div class="max-w-sm rounded overflow-hidden shadow-lg mr-10">
+    <img class="w-full" src="muonsach.jpg" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Mượn sách</div>
+        <p class="text-gray-700 text-base">
+            Ghi nhận thông tin khách hàng mượn sách.
+        </p>
+    </div>
+    <div class="px-6 py-4">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#muonsach</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#sach</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#khachhang</span>
+    </div>
+</div>
+</a>
+
+
+
+
+
+    <a href=''>     
+        <div class="max-w-sm rounded overflow-hidden shadow-lg ml-10">
+    <img class="trasach_img w-full" src="trasach.jpg" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Trả sách</div>
+        <p class="text-gray-700 text-base">
+            Ghi nhận thông tin khách hàng trả sách.
+        </p>
+    </div>
+    <div class="px-6 py-4">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#trasach</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#sach</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#khachhang</span>
+    </div>
+</div></a>
+
+
+</div>
+<div class="popular_text">
+<marquee>Sách là nguồn tri thức vô tận của nhân loại.</marquee>
+</div>
     <footer class="bg-gray-800 shadow dark:bg-gray-900 z-50 footer_login-page footer_login-page footer_css bottom-0">
       <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">

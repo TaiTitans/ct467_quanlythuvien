@@ -35,6 +35,12 @@
         height: 225px;
         }
     </style>
+
+<?php
+                            include('../../../php/ConnectMySQL.php');
+                            include('../../../php/CacHamXuLy.php');
+                            $TTSach = infSach();
+                        ?>
 <body>
 <header>
         <script>
@@ -129,7 +135,7 @@
         <div class="main">
         <div class="flex px-3 py-3 items-center justify-center align-content-center">
 
-    <a href=''><div class="max-w-sm rounded overflow-hidden shadow-lg mr-10">
+    <a href='../admin/QuanLySach/MuonSach.php'><div class="max-w-sm rounded overflow-hidden shadow-lg mr-10">
         <img class="w-full" src="muonsach.jpg" alt="Sunset in the mountains">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Mượn sách</div>
