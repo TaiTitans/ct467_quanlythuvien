@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinh Sua Nhan Vien</title>
+    <title>Chỉnh Sửa Thông Tin Đọc Giả</title>
     <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
         <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
         <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
