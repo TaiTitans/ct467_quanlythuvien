@@ -1,0 +1,67 @@
+/* custom-datatable.css */
+
+/* Tùy chỉnh màu sắc cho các hàng xen kẽ */
+#example tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#example_filter label {
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#example_length label {
+    margin-top: 8px;
+    margin-left:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#example thead {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#example_info{
+    margin-top: 4px;
+    margin-left:8px;
+    margin-right:8px;
+    margin-bottom:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#example_paginate{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#example_paginate span {
+    margin-left: 4px;
+    margin-right: 4px;
+    text-decoration: none;
+    color:#E5E7E9;
+}
+#example_paginate a {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #E5E7E9;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.themdocgia_button{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

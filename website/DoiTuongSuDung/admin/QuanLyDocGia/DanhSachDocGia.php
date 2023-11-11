@@ -38,6 +38,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         
         <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
+        <link rel="stylesheet" href="../../../css/danhsachdocgia.css">
+        
     </head>
     <body>
         <header>
@@ -51,6 +53,7 @@
       });
     });
   </script>
+
   <div class="header">
     <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -135,11 +138,19 @@
         </div>
         </header>
         <main>
-            <div class="bg-gray-200 rounded-lg mt-10 mx-10">
+        <div class="py-6 sm:py-8 lg:py-12">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 mx-8 mb-5">
+        <h1 class="text-4xl font-bold text-white mb-4">
+          Danh sách độc giả
+        </h1>
+        <p class="text-lg text-white mb-8">
+          😊
+      </div>
+            <div class="bg-gray-200 rounded-lg mt-10 pb-2 px-2 mx-10 layout_main">
 
         
 
-<a class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline" href="./ThemDocGia.php">
+<a class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline themdocgia_button" href="./ThemDocGia.php">
   Thêm độc giả
 </a>
 
@@ -186,7 +197,7 @@
                         ?>
                     </tbody>
                     <tfoot>
-                        <!-- <tr class="TieuDeBang">
+                        <tr class="TieuDeBang">
                             <th>UserID/Mã đọc giả</th>
                             <th>Họ tên</th>
                             <th>Giới tính</th>
@@ -194,7 +205,7 @@
                             <th>Số điện thoại</th>
                             <th>Delete</th>
                             <th>Cập nhật</th>
-                        </tr> -->
+                        </tr>
                     </tfoot>
                 </table>
             </div>
