@@ -85,10 +85,10 @@
                   <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                      <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Trang chủ</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLySach/DanhSachSach.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Kho Sách</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân Viên</a>
-                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông tin cho mượn</a>
+                      <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium no-underline" aria-current="page">Trang chủ</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLySach/DanhSachSach.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Kho Sách</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân Viên</a>
+                      <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php" class="no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông tin cho mượn</a>
                     </div>
                   </div>
                 </div>
@@ -135,7 +135,7 @@
         </div>
         </header>
         <main>
-            <div class="bg-gray-300 rounded-lg mt-10 mx-10">
+            <div class="bg-gray-200 rounded-lg mt-10 mx-10">
 
         
 
@@ -147,7 +147,7 @@
            
 
                 
-                <table id='example' class="table table-striped rounded-md">
+                <table id='example' class="table is-striped rounded-md">
                     <thead>
                         <tr class="TieuDeBang">
                             <th>UserID/Mã đọc giả</th>
@@ -186,7 +186,7 @@
                         ?>
                     </tbody>
                     <tfoot>
-                        <tr class="TieuDeBang">
+                        <!-- <tr class="TieuDeBang">
                             <th>UserID/Mã đọc giả</th>
                             <th>Họ tên</th>
                             <th>Giới tính</th>
@@ -194,7 +194,7 @@
                             <th>Số điện thoại</th>
                             <th>Delete</th>
                             <th>Cập nhật</th>
-                        </tr>
+                        </tr> -->
                     </tfoot>
                 </table>
             </div>
