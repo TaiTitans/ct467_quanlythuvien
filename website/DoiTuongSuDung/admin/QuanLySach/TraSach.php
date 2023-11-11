@@ -16,7 +16,8 @@
     <script>
         function kiemTraVaGuiMau() {
             var idSach = document.getElementById("idSach").value;
-            var IDdocGia = document.getElementById("hoTen").value;
+            var IDdocGia = document.getElementById("IDdocGia").value;
+            var tenSach = document.getElementById("tenSach").value;
             var IDnhanVien = document.getElementById("gioiTinh").value;
             var ngayTra = document.getElementById("ngaySinh").value;
             var ngayMuon = document.getElementById("SDT").value;
@@ -33,9 +34,12 @@
     <?php
     include('../../../php/ConnectMySQL.php');
     include('../../../php/CacHamXuLy.php');
-    $msnv = $_GET['MSNV'];
+    // $msdg = $_GET['MSDG'];
+    // $IDsach = $_GET['ID'];
 
-    $TTnv = identifyNhanVien($msnv);
+    // $TTdg = identifyDocGia($msdg);
+    // $TTsach = ID_Sach($IDsach);
+
     mysqli_next_result($connect);
     ?>
 
@@ -86,7 +90,7 @@
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Trang chủ</a>
+                                <a href="../../../../Librarian_Project/code/dist/trangchu.html" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Trang chủ</a>
                             </div>
                         </div>
                     </div>
@@ -152,15 +156,15 @@
                 </div>
 
                 <div class="p-6 space-y-6">
-                    <form action="ThucHienChinhSuaNhanVien.php?MSNV=<?php echo $msnv; ?>" method="post" enctype="application/x-www-form-urlencoded">
+                    <form action="#" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
-                                <input type="text" value='<?php echo $TTnv['IDnhanVien']; ?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                                <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
+                                <input type="text" value='<?php echo $TTdg['IDdocGia']; ?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
                             </div>
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
-                                <input type="text" value='<?php echo $TTnv['hoTen']; ?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                                <label for="IDsach" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
+                                <input type="text" value='<?php echo $TTsach['teenSach']; ?>' name="IDsach" id="IDsach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
