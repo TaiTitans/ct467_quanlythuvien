@@ -49,7 +49,11 @@
       /*Set to match the Tailwind colour you want the active one to be */
     }
   </style>
-
+  <?php
+    include('../../../website/php/ConnectMySQL.php');
+    include('../../../website/php/CacHamXuLy.php');
+    
+  ?>
 
 </head>
 
@@ -111,8 +115,11 @@
                   class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nhân
                   Viên</a>
                 <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Thông
-                  tin cho mượn</a>
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  Đọc giả</a>
+                <a href="../../../website/DoiTuongSuDung/admin/QuanLyDocGia/DanhSachDocGia.php"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  Thông tin mượn sách</a>
               </div>
             </div>
           </div>
@@ -255,7 +262,7 @@
           <div class="px-4 text-gray-700">
             <h3 class="text-sm tracking-wider"><a
                 href="../../../website/DoiTuongSuDung/admin/QuanLyNhanVien/DanhSachNhanVien.php">Nhân viên</a></h3>
-            <p class="text-3xl">4</p>
+            <p class="text-3xl"><?php echo SoLuongNhanVien();?></p>
           </div>
         </div>
         <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow rounded-lg">
@@ -268,7 +275,7 @@
           </div>
           <div class="px-4 text-gray-700">
             <h3 class="text-sm tracking-wider">Số sách</h3>
-            <p class="text-3xl">71</p>
+            <p class="text-3xl"><?php echo SoLuongSach();?></p>
           </div>
         </div>
         <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow rounded-lg">
@@ -280,7 +287,7 @@
           </div>
           <div class="px-4 text-gray-700">
             <h3 class="text-sm tracking-wider">Số sách cho mượn</h3>
-            <p class="text-3xl">30</p>
+            <p class="text-3xl"><?php echo Dem_NhungBanSachDaMuon();?></p>
           </div>
         </div>
         <div class="flex items-center bg-white border rounded-sm overflow-hidden shadow rounded-lg">
@@ -292,7 +299,7 @@
           </div>
           <div class="px-4 text-gray-700">
             <h3 class="text-sm tracking-wider">Độc giả</h3>
-            <p class="text-3xl">40</p>
+            <p class="text-3xl"><?php echo SoLuongDocGia();?></p>
           </div>
         </div>
       </div>

@@ -313,8 +313,40 @@
 
     //33. Tính độ chênh lệch giữa ngày hiện tại và ngày trả của bản sách
     function DoChechLechNgayTra($soBan){
-        $sql = "SELECT qlthuvien.Tinh_do_chenh_lech_ngay('$soBan') AS doChenhLech";
+        $sql = "SELECT  DATEDIFF(CURDATE(), (SELECT ngayTra FROM ChiTietMuonSach WHERE soban = '$soBan' LIMIT 1)) AS Do_chenh_lech";
         $thucHien = TruyVan($sql);        
-        return mysqli_fetch_array($thucHien);
+        return mysqli_fetch_array($thucHien)['Do_chenh_lech'];
+    }
+
+    //34. Lấy số lượng sách
+     function SoLuongSach(){
+        $sql = "SELECT COUNT(*) dem FROM Sach";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien)['dem'];
+    }
+
+    //34. Lấy số lượng nhân viên
+    function SoLuongNhanVien(){
+        $sql = "SELECT COUNT(*) dem FROM nhanvien";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien)['dem'];
+    }
+
+    //32. Đếm số những cuốn sách đã mượn
+    function Dem_NhungBanSachDaMuon(){
+        $sql = "SELECT count(*) dem 
+                FROM ChiTietMuonSach ct 
+                INNER JOIN ChiTietSach cts ON ct.soBan = cts.soBan
+                INNER JOIN Sach s on s.idSach = cts.idSach
+                WHERE cts.STT = 1";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien)['dem'];
+    }
+
+    //34. Lấy số lượng Đọc giả
+    function SoLuongDocGia(){
+        $sql = "SELECT COUNT(*) dem FROM docgia";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien)['dem'];
     }
 ?>
