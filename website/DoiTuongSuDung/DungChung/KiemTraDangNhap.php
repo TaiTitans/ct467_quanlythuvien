@@ -15,7 +15,7 @@
                 AND UserRole = 0";
         $KT = mysqli_fetch_array(TruyVan($sql));
         if($KT['dem'] > 0){
-            header('location:../../../Librarian_Project/code/dist/trangchu.html');
+            header('location:../../../Librarian_Project/code/dist/trangchu.php');
         }else{
             $TaiKhoanHopLe = 0;
         }
