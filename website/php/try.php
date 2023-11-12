@@ -11,13 +11,12 @@
     //     // echo '<p>Tên: '.$row['TenTheLoai'].'</p>';
     // }
     // echo '</select>';
-     //   TaoSoLuongSach(20,'S009');
-    $sql = "SELECT idSach FROM Sach";
-    $LayID = TruyVan($sql);
-    while($row = mysqli_fetch_array($LayID)){
-        mysqli_next_result($connect);
-        // echo '<p>'.ID_SoLuongSach($row['idSach']).'</p>';
-        
-    }
 
+    $sql = "SELECT *
+            FROM ChiTietSach 
+            WHERE idSach = 'S72' AND STT = '0'
+            LIMIT 5 ";
+    for($i= 0; $i < 5; $i++){
+            
+    }
 ?>

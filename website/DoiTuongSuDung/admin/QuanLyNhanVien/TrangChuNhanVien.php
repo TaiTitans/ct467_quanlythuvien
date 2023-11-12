@@ -124,6 +124,13 @@
           </nav>
     </div>
         </div>
+        <?php 
+          include('../../../php/ConnectMySQL.php');
+          include('../../../php/CacHamXuLy.php');
+          $msnv = $_GET['MSNV'];
+
+          echo '<div>'.IDnhanVien_NhanVien($msnv)['hoTen'].'</div>';
+        ?>
         </header>
         <div class="py-6 sm:py-8 lg:py-12">
       <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 mx-8 mb-5">
@@ -146,15 +153,16 @@
                             <th>Tác giả</th>
                             <th>Thể loại</th>
                             <th>Mô tả</th>
-                            <th>Ghi nhận</th>
+                            <th>Số lượng sách</th>
                         </tr>
                     </thead>
                     <tbody class="TBody">
                         <?php
-                            include('../../../php/ConnectMySQL.php');
-                            include('../../../php/CacHamXuLy.php');
+                            
                             $TTSach = infSach();
                             while($row = mysqli_fetch_array($TTSach)){
+                                $soLuong =ID_SoLuongSach($row['idSach']);
+                                mysqli_next_result($connect);
                                 echo'<tr>
                                         <td>'.$row['idSach'].'</td>
                                         <td>'.$row['tenSach'].'</td>
@@ -164,7 +172,7 @@
                                         <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
                                         <td>'.$row['MoTa'].'</td>
                                         <td>
-                                            <a href="../../NhanVien/GhiNhanMuonSach.php?ID='.$row['idSach'].'"><i class="fa-solid fa-magnifying-glass icon_ghinhan"></i></a>
+                                            '.$soLuong.'
                                         </td>
                                     </tr>';
                             }

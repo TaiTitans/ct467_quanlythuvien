@@ -139,12 +139,18 @@
     <div class="text-2xl py-4 px-6 bg-gray-900 text-white text-center font-bold uppercase">
         Chỉnh sửa sách
     </div>
-    <form class="py-4 px-6" action="ThucHienCapNhatSach.php" method="post" name="BieuMauThemSach" enctype="application/x-www-form-urlencoded" onsubmit="return BieuMauThemSach()">
+    <form class="py-4 px-6" action="ThucHienCapNhatSach.php?IDsach=<?php echo $IDsach;?>" method="post" name="BieuMauThemSach" enctype="application/x-www-form-urlencoded" onsubmit="return BieuMauThemSach()">
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="name">
                 ID Sách
             </label>
             <input type="text" name="idSach" value="<?php echo $TTsach['idSach'];?>">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="name">
+                Số lượng sách
+            </label>
+            <input type="text" name="SoLuongSach" value=" <?php mysqli_next_result($connect); echo ID_SoLuongSach($TTsach['idSach']);?>">
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="email">

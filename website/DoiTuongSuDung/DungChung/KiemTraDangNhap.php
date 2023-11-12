@@ -26,8 +26,8 @@
                 AND MatKhau = '$pw' 
                 AND UserRole = 1";
         $KT1 = mysqli_fetch_array(TruyVan($sql1));
-        if($KT['dem'] > 0){
-            header('location:###&MSNV=');
+        if($KT1['dem'] > 0){
+            header('location:../admin/QuanLyNhanVien/TrangChuNhanVien.php?&MSNV='.$taiKhoan.'');
         }else{
             $TaiKhoanHopLe = 0;
         }
@@ -39,3 +39,4 @@
             </script>";
     }
 ?>
+

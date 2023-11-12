@@ -250,4 +250,21 @@
         $sql = "call qlthuvien.InsertMultipleRecords($soLuong, '$idsach', 0)";
         $thucHien = TruyVan($sql);
     }
+
+    //26. Lấy số lượng sách chưa mượn
+    function IDsach_SoLuongSachChuaMuon($idsach){
+        $sql = "SELECT *
+                FROM ChiTietSach 
+                WHERE idSach = '$idsach' AND STT = '0'";
+        $thucHien = TruyVan($sql);
+        return $thucHien;    
+    }
+
+    //27. Tìm nhân viên thông qua ID nhân viên
+    function IDnhanVien_NhanVien($msnv){
+        $sql = "SELECT * FROM nhanvien
+                WHERE IDnhanVien = '$msnv'";
+        $thucHien = TruyVan($sql);
+        return mysqli_fetch_array($thucHien); 
+    }
 ?>
