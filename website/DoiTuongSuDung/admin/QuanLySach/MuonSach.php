@@ -173,6 +173,43 @@
           </button>
         </div>
 
+        <div class="p-6 space-y-6">
+    <form action="ThucHienChinhSuaNhanVien.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+                <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
+                <input type="text" value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
+                <input type="text" value='<?php echo $TTnv['hoTen'];?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
+                <input type="text" value='<?php echo $TTnv['SDT'];?>' name="idSach" id="idSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                        <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
+                        Ngày Mượn
+                        </label>
+
+                        <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngayMuon" id="ngayMuon"
+
+                        <input type="date" name="date" id="date"
+                            class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
+                    </div>
+                    <div class="col-span-6 sm:col-span-3">
+                        <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
+                        Ngày Trả
+                        </label>
+
+                        <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngayTra" id="ngayTra"
+
+                        <input type="date" name="date" id="date"
+                            class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
+                    </div>
+
+        </div>
 <div class="p-6 space-y-6"> 
     <form action="ThucHienLuuThongTinMuonSach.php?MSNV=<?php echo $msnv;?>&idSach=<?php echo $idSach;?>" method="post" enctype="application/x-www-form-urlencoded">
         <div class="grid grid-cols-6 gap-6">
