@@ -17,9 +17,9 @@
     //Điều kiện nếu tìm thấy thì tìm kiếm xem thuộc về đối tượng nào
     if($ketQua > 0){
         if($role === 0) {
-            header('Location: Librarian_Project\code\dist\trangchu.html?ID='.$taiKhoan.'');
+            header('Location: Librarian_Project\code\dist\trangchu.php?ID='.$taiKhoan.'');
         }elseif ($role === 1) {
-            header('Location: Librarian_Project\code\dist\trangchu.html?ID='.$taiKhoan.'');
+            header('Location: Librarian_Project\code\dist\trangchu.php?ID='.$taiKhoan.'');
         }else {
             echo "<p> Không tìm thấy</p>";
         $KhongThay = "KhongThayTaiKhoan";

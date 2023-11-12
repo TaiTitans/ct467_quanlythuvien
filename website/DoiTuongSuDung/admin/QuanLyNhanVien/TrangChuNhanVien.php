@@ -38,6 +38,20 @@
       width: 5vw;
       height: auto;
     }
+    #TrangChuNhanVien{
+      width: 100%;
+    }
+    .text_nhanvien{
+      color:black;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+    .text_cc{
+      display:flex;
+    }
+    #TrangChuNhanVien tbody {
+      text-align: center;
+    }
     </style>
 <body>
 <header>
@@ -110,7 +124,7 @@
         
                     <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none user-menu hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                       <!-- Active: "bg-gray-100", Not Active: "" -->
-                      <a href="../../../../Librarian_Project/code/dist/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Đăng xuất</a>
+                      <a href="../../DungChung/dangxuat.php" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Đăng xuất</a>
                     </div>
                   </div>
                 </div>
@@ -133,7 +147,7 @@
           include('../../../php/CacHamXuLy.php');
           $msnv = $_GET['MSNV'];
 
-          echo '<div>'.IDnhanVien_NhanVien($msnv)['hoTen'].'</div>';
+          // echo '<div>'.IDnhanVien_NhanVien($msnv)['hoTen'].'</div>';
         ?>
         </header>
         <div class="py-6 sm:py-8 lg:py-12">
@@ -141,8 +155,13 @@
         <h1 class="text-4xl font-bold text-white mb-4">
           Trang chủ nhân viên
         </h1>
-        <p class="text-lg text-white mb-8">
-          😊
+        <div class="text_cc">
+
+          <p class="text-lg text-white mb-8">
+            Xin chào, <?php echo '<div class="text_nhanvien">'.IDnhanVien_NhanVien($msnv)['hoTen'].'</div>'; ?>
+
+        </div>
+
       </div>
       <div class="bg-gray-200 rounded-lg mt-10 pb-2 px-2 mx-10 layout_main">
 
