@@ -34,6 +34,10 @@
     .trasach_img{
         height: 225px;
         }
+    .AnhSach{
+      width: 5vw;
+      height: auto;
+    }
     </style>
 <body>
 <header>
@@ -152,8 +156,8 @@
                             <th>Nhà xuất bản</th>
                             <th>Tác giả</th>
                             <th>Thể loại</th>
-                            <th>Mô tả</th>
                             <th>Số lượng sách</th>
+                            <th>Ghi nhận mượn sách</th>
                         </tr>
                     </thead>
                     <tbody class="TBody">
@@ -170,9 +174,11 @@
                                         <td>'.identifyNhaXuatBan($row['idNXB'])['TenNXB'].'</td>
                                         <td>'.identifyTacGia($row['IDtacGia'])['hoTen'].'</td>
                                         <td>'.identifyTheLoai($row['idTheLoai'])['TenTheLoai'].'</td>
-                                        <td>'.$row['MoTa'].'</td>
                                         <td>
                                             '.$soLuong.'
+                                        </td>
+                                        <td>
+                                          <a href="../QuanLySach/MuonSach.php?MSNV='.$msnv.'&idSach='.$row['idSach'].'"> <img src="AnhMuonSach.png" class="AnhSach"/></a>
                                         </td>
                                     </tr>';
                             }
@@ -195,7 +201,7 @@
     </div>
     <div class="flex px-3 py-3 items-center justify-center align-content-center">
 
-<a href='../QuanLySach/MuonSach.php'><div class="max-w-sm rounded overflow-hidden shadow-lg mr-10">
+<a href='../QuanLySach/MuonSach.php?MSNV=<?php echo $msnv;?>'><div class="max-w-sm rounded overflow-hidden shadow-lg mr-10">
     <img class="w-full" src="muonsach.jpg" alt="Sunset in the mountains">
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Mượn sách</div>
