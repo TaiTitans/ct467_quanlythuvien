@@ -11,6 +11,8 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../../website/css/trasach.css">
+   
     <!--
           PHP
         -->
@@ -18,6 +20,77 @@
         .AnhTraSach{
             width: 8vw;
         }
+        #CanChinhDanhDaMuon_filter label {
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#CanChinhDanhDaMuon_length label {
+    margin-top: 8px;
+    margin-left:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#CanChinhDanhDaMuon thead {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#CanChinhDanhDaMuon_info{
+    margin-top: 4px;
+    margin-left:8px;
+    margin-right:8px;
+    margin-bottom:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: #E5E7E9;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#CanChinhDanhDaMuon_paginate{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#CanChinhDanhDaMuon_paginate span {
+    margin-left: 4px;
+    margin-right: 4px;
+    text-decoration: none;
+    color:#E5E7E9;
+}
+#CanChinhDanhDaMuon_paginate a {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #E5E7E9;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#CanChinhDanhDaMuon tbody td {
+    border: solid 1px #000;
+}
+#CanChinhDanhDaMuon tfoot {
+    background-color: cornflowerblue;
+    color: #fff;
+}
+#CanChinhDanhDaMuon{
+
+    width: 100%;
+}
+#CanChinhDanhDaMuon thead {
+    background-color: cornflowerblue;
+    color: #fff;
+}
     </style>
     <script>
         function kiemTraVaGuiMau() {
