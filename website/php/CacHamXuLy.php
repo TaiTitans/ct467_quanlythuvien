@@ -267,4 +267,20 @@
         $thucHien = TruyVan($sql);
         return mysqli_fetch_array($thucHien); 
     }
+
+    //28. Lấy các bản sách chưa được mượn dựa trên ID Sách
+    function IDsach_SachChuaMuon($idSach){
+        $sql = "SELECT *
+                FROM ChiTietSach 
+                WHERE idSach='$idSach' AND STT = 0";
+        $thucHien = TruyVan($sql);
+        return $thucHien; 
+    }
+
+    //29. Lấy tình trạng sách
+    function DS_tinhTrangSach(){
+        $sql = "SELECT * FROM TinhTrang";
+        $thucHien = TruyVan($sql);
+        return $thucHien;
+    }
 ?>

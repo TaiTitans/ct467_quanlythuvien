@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mượn sách</title>
     <link href="/Librarian_Project/code/dist/output.css" rel="stylesheet">
-        <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
-        <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        <!--
-          PHP
-        -->
+    <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
+    <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <style>
+      #NutChonDocGia{
+        width: 2vw;
+        height: 2vw;
+      }
+    </style>
 
         <script>
     function kiemTraVaGuiMau() {
@@ -29,14 +34,18 @@
         }
     }
 </script>
-        <?php
-            include('../../../php/ConnectMySQL.php');
-            include('../../../php/CacHamXuLy.php');
-            $msnv = $_GET['MSNV'];
-            $idSach = $_GET['idSach'];
-            $TTnv = identifyNhanVien($msnv);
-            mysqli_next_result($connect);
-        ?>
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script defer src="../../../js/DocGia/CauHinhBangDocGia.js"></script>
+  <?php
+      include('../../../php/ConnectMySQL.php');
+      include('../../../php/CacHamXuLy.php');
+      $msnv = $_GET['MSNV'];
+      $idSach = $_GET['idSach'];
+      $TTnv = identifyNhanVien($msnv);
+      mysqli_next_result($connect);
+  ?>
 
     </head>
     <body>
@@ -130,7 +139,7 @@
         <div class="py-6 sm:py-8 lg:py-12">
             <div class="bg-cyan-700 rounded-lg shadow-lg p-8 mx-8 mb-5">
                 <h1 class="text-2xl font-bold text-black mb-4- justify-center text-center">
-                Mượn sách
+                GHI NHẬN TÌNH TRẠNG SÁCH
                 </h1>
         </div>
 
@@ -149,8 +158,8 @@
           </button>
         </div>
 
-<div class="p-6 space-y-6">
-    <form action="ThucHienChinhSuaNhanVien.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
+<div class="p-6 space-y-6"> 
+    <form action="ThucHienLuuThongTinMuonSach.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
@@ -163,6 +172,35 @@
             <div class="col-span-6 sm:col-span-3">
                 <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
                 <input disabled type="text" value='<?php echo $idSach;?>' name="idSach" id="idSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="ChiTietSach" class="text-sm font-medium text-gray-900 block mb-2">Chọn bản sách</label>
+                <select id="ChiTietSach" name="SoBan" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                  <?php
+                  
+                    $SoBanSach = IDsach_SachChuaMuon($idSach);
+                    mysqli_next_result($connect);
+                    while($row = mysqli_fetch_array($SoBanSach)){
+                      mysqli_next_result($connect);
+                      echo '<option value='.$row['soBan'].'>'.$row['soBan'].'</option>';
+                    }
+                  ?>
+                </select>
+                
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="TinhTrang" class="text-sm font-medium text-gray-900 block mb-2">Tình trạng sách</label>
+                <select id="TinhTrang" name="TinhTrangSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                  <?php
+                  
+                    $SoTinhTrang = DS_tinhTrangSach($idSach);
+                    mysqli_next_result($connect);
+                    while($row = mysqli_fetch_array($SoTinhTrang)){
+                      mysqli_next_result($connect);
+                      echo '<option value='.$row['STT'].'>'.$row['TenTinhTrang'].'</option>';
+                    }
+                  ?>
+                </select>
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
@@ -193,6 +231,52 @@
           <button href="DanhSachNhanVien.php"type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
               Quay lại
           </button>
+        </div>
+        <div>
+          <a href="../QuanLyDocGia/ThemDocGia.php">Thêm đọc giả mới</a>
+        <table id='CanChinhDanhSachDocGia' class="table is-striped rounded-md">
+          <thead>
+            <tr class="TieuDeBang">
+              <th>Mã đọc giả</th>
+              <th>Họ tên</th>
+              <th>Giới tính</th>
+              <th>Ngày sinh</th>
+              <th>Số điện thoại</th>
+              <th>Ghi nhận</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $TTdocGia = infDocGia();
+              while ($row = mysqli_fetch_array($TTdocGia)) {
+                $idDocGia = trim($row['IDdocGia']);
+                echo '<tr>
+                                          <td>' . $idDocGia . '</td>
+                                          <td>' . $row['hoTen'] . '</td>
+                                          <td>' . $row['gioiTinh'] . '</td>
+                                          <td>' . $row['ngaySinh'] . '</td>
+                                          <td>' . $row['SDT'] . '</td>';
+            ?>
+              <td>
+                <input type="radio" name="IDdocGia" id="NutChonDocGia" value="<?php echo $idDocGia;?>">
+              </td>
+            <?php
+              echo '</tr>';
+            }
+            ?>
+          </tbody>
+          <tfoot>
+            <tr class="TieuDeBang">
+              <th>Mã đọc giả</th>
+              <th>Họ tên</th>
+              <th>Giới tính</th>
+              <th>Ngày sinh</th>
+              <th>Số điện thoại</th>
+              <th>Ghi nhận</th>
+            </tr>
+          </tfoot>
+        </table>
+        </div>
     </form>
 </div>
 
