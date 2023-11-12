@@ -221,7 +221,7 @@
 
 
 
-    <a href='../QuanLySach/TraSach.php'>     
+    <a href='../QuanLySach/TraSach.php?MSNV=<?php echo $msnv;?>'>     
         <div class="max-w-sm rounded overflow-hidden shadow-lg ml-10">
     <img class="trasach_img w-full" src="trasach.jpg" alt="Sunset in the mountains">
     <div class="px-6 py-4">

@@ -292,4 +292,29 @@
         return  mysqli_fetch_array($thucHien)['dem'];
     }
 
+    //31. Liệt kê những cuốn sách đã mượn
+    function LietKeNhungBanSachDaMuon(){
+        $sql = "SELECT * 
+                FROM ChiTietMuonSach ct 
+                INNER JOIN ChiTietSach cts ON ct.soBan = cts.soBan
+                INNER JOIN Sach s on s.idSach = cts.idSach
+                WHERE cts.STT = 1";
+        $thucHien = TruyVan($sql);
+        return  $thucHien;
+    }
+
+    //32.Tìm thông tin đọc giả qua ID
+    function idDocGia_DocGia($idDG){
+        $sql = "SELECT * FROM docgia
+                WHERE IDdocGia = '$idDG'";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien);
+    }
+
+    //33. Tính độ chênh lệch giữa ngày hiện tại và ngày trả của bản sách
+    function DoChechLechNgayTra($soBan){
+        $sql = "SELECT qlthuvien.Tinh_do_chenh_lech_ngay('$soBan') AS doChenhLech";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien);
+    }
 ?>

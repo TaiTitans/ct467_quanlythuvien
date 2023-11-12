@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="/Librarian_Project/code/dist/assets/css/style.css">
     <link rel="shortcut icon" href="/Librarian_Project/code/dist/assets/img/favicon.png">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
     <!--
           PHP
         -->
-
+    <style>
+        .AnhTraSach{
+            width: 8vw;
+        }
+    </style>
     <script>
         function kiemTraVaGuiMau() {
             var idSach = document.getElementById("idSach").value;
@@ -31,6 +37,10 @@
             }
         }
     </script>
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script defer src="../../../js/sach/CauHinhBang.js"></script>
     <?php
     include('../../../php/ConnectMySQL.php');
     include('../../../php/CacHamXuLy.php');
@@ -146,7 +156,7 @@
 
                 <div class="flex items-start justify-between p-5 border-b rounded-t">
                     <h3 class="text-xl font-semibold">
-                        Thông tin
+                        Thông tin những bản sách đã mượn
                     </h3>
                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="product-modal">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -155,47 +165,71 @@
                     </button>
                 </div>
 
-                <div class="p-6 space-y-6">
-                    <form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                        <div class="grid grid-cols-6 gap-6">
-                            <!-- <div class="col-span-6 sm:col-span-3">
-                                <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
-                                <input type="text" value='<?php echo $TTdg['IDdocGia']; ?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                            </div> -->
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="IDsach" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
-                                <input type="text" value='<?php echo $TTsach['teenSach']; ?>' name="IDsach" id="IDsach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
-                                <input type="text" value='<?php echo $TTnv['SDT']; ?>' name="idSach" id="idSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
-                                    Ngày Mượn
-                                </label>
+            <div>
+                <table id="CanChinhDanhDaMuon">
+                    <thead>
+                        <tr>
+                            <th>Số bản</th>
+                            <th>Tên sách</th>
+                            <th>Nhân viên</th>
+                            <th>Đọc giả</th>
+                            <th>Ngày mượn</th>
+                            <th>Ngày trả</th>
+                            <th>Trễ</th>
+                            <th>Phí</th>
+                            <th>Xác nhận đã trả sách</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $LietKe = LietKeNhungBanSachDaMuon();
+                            while($row = mysqli_fetch_array($LietKe)){
+                                mysqli_next_result($connect);
+                                $idsach = ID_Sach($row['idSach'])['tenSach'];
+                                mysqli_next_result($connect);
+                                $hotenNV = IDnhanVien_NhanVien($row['IDnhanVien'])['hoTen'];
+                                mysqli_next_result($connect);
+                                $hotenDG = idDocGia_DocGia($row['IDdocGia'])['hoTen'];
+                                $Tre = 0;//DoChechLechNgayTra($row['soBan'])['doChenhLech'] ?? 0;
+                                // mysqli_next_result($connect);
 
-                                <input type="date" value='<?php echo $TTnv['ngaySinh']; ?>' name="ngayMuon" id="ngayMuon" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
-                            </div>
-                            <!-- <div class="col-span-6 sm:col-span-3">
-                                <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
-                                    Ngày Trả
-                                </label>
-
-                                <input type="date" value='<?php echo $TTnv['ngaySinh']; ?>' name="ngayTra" id="ngayTra" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
-                            </div> -->
-
-                        </div>
-                        <div class="flex justify-center mb-4 mt-10">
-                            <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-                                Lưu thông tin
-                            </button>
-                            <button type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-                                <a href="../../admin/QuanLyNhanVien/TrangChuNhanVien.php" >Quay lại</a>
-                            </button>
-
-                    </form>
-                </div>
+                                echo '<tr>';
+                                echo    '<td>'.$row['soBan'].'</td>';
+                                echo    '<td>'.$idsach.'</td>';
+                                echo    '<td>'.$hotenNV.'</td>';
+                                echo    '<td>'.$hotenDG.'</td>';
+                                echo    '<td>'.$row['ngayMuon'].'</td>';
+                                mysqli_next_result($connect);
+                                echo    '<td>'.$row['ngayTra'].'</td>';
+                                echo    '<td>'.$Tre.'</td>';
+                                echo    '<td>'.($Tre * 2000).'.VNĐ</td>';
+                        ?>
+                                        <td>
+                                            <a href="ThucHienTraSach.php?SoBan=<?php echo $row['soBan'];?>">
+                                                <img src="to-do-list.png" alt="" class="AnhTraSach">
+                                            </a>
+                                            
+                                        </td>
+                        <?php
+                                    echo '</tr>';
+                            }
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Số bản</th>
+                            <th>Tên sách</th>
+                            <th>Nhân viên</th>
+                            <th>Đọc giả</th>
+                            <th>Ngày mượn</th>
+                            <th>Ngày trả</th>
+                            <th>Trễ</th>
+                            <th>Phí</th>
+                            <th>Xác nhận đã trả sách</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
 
 
 
