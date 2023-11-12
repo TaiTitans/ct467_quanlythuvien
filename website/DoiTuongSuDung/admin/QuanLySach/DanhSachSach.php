@@ -28,7 +28,7 @@
         <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
         <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
         <script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-        <script defer src="../../../js/sach/CauHinhBang.js"></script>m
+        <script defer src="../../../js/sach/CauHinhBang.js"></script>
         <!--CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../../../css/admin/TrangChu.css">
