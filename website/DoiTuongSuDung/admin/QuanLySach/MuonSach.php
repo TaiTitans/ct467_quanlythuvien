@@ -10,11 +10,90 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script defer src="../../../js/nhanvien/ThemSach.js"></script>
+    
     <style>
       #NutChonDocGia{
         width: 2vw;
         height: 2vw;
       }
+.button_page{
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color:cornflowerblue;
+  color:#fff;
+  text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button_page:hover{
+  background-color:white;
+  color:#000;
+}
+#CanChinhDanhSachDocGia tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#CanChinhDanhSachDocGia_filter label {
+    padding: 10px;
+    margin-right: 4px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#CanChinhDanhSachDocGia_length label {
+    margin-top: 14px;
+    margin-left:2px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#CanChinhDanhSachDocGia thead {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#CanChinhDanhSachDocGia .TieuDeBang th {
+  background-color:cornflowerblue;
+  color: #fff;
+}
+#CanChinhDanhSachDocGia_info{
+    margin-top: 4px;
+    margin-left:8px;
+    margin-right:8px;
+    margin-bottom:8px;
+    padding: 10px;
+    margin-right: 4px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    color: #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#CanChinhDanhSachDocGia_paginate{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#CanChinhDanhSachDocGia_paginate span {
+    margin-left: 4px;
+    margin-right: 4px;
+    text-decoration: none;
+    color:whitesmoke;
+}
+#CanChinhDanhSachDocGia_paginate a {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: whitesmoke;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
     </style>
 
         <script>
@@ -158,42 +237,27 @@
           </button>
         </div>
 
-<div class="p-6 space-y-6"> 
-    <form action="ThucHienLuuThongTinMuonSach.php?MSNV=<?php echo $msnv;?>&idSach=<?php echo $idSach;?>" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="p-6 space-y-6">
+    <form action="ThucHienChinhSuaNhanVien.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
-                <input type="text" disabled value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                <input type="text" value='<?php echo $TTnv['IDnhanVien'];?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
-                <input type="text" value='' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" >
+                <input type="text" value='<?php echo $TTnv['hoTen'];?>' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
-                <input disabled type="text" value='<?php echo $idSach;?>' name="idSach" id="idSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label for="ChiTietSach" class="text-sm font-medium text-gray-900 block mb-2">Chọn bản sách</label>
-                <select id="ChiTietSach" name="SoBan" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                  <?php
-                  
-                    $SoBanSach = IDsach_SachChuaMuon($idSach);
-                    mysqli_next_result($connect);
-                    while($row = mysqli_fetch_array($SoBanSach)){
-                      mysqli_next_result($connect);
-                      echo '<option value='.$row['soBan'].'>'.$row['soBan'].'</option>';
-                    }
-                  ?>
-                </select>
-                
+                <input type="text" value='<?php echo $TTnv['SDT'];?>' name="idSach" id="idSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
                         Ngày Mượn
                         </label>
 
-                        <input type="date" value='<?php echo date('Y-m-d');?>' name="ngayMuon" id="ngayMuon"
+                        <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngayMuon" id="ngayMuon"
 
                         <input type="date" name="date" id="date"
                             class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
@@ -203,23 +267,16 @@
                         Ngày Trả
                         </label>
 
-                        <input type="date" value='' name="ngayTra" id="ngayTra"
+                        <input type="date" value='<?php echo $TTnv['ngaySinh'];?>' name="ngayTra" id="ngayTra"
 
                         <input type="date" name="date" id="date"
                             class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                     </div>
 
         </div>
-        <div class="flex justify-center mb-4 mt-10">
-          <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-              Lưu thông tin
-          </button>
-          <button href="DanhSachNhanVien.php"type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-              Quay lại
-          </button>
-        </div>
+<div class="p-6 space-y-6"> 
         <div>
-          <a href="../QuanLyDocGia/ThemDocGia.php">Thêm đọc giả mới</a>
+          <a href="../QuanLyDocGia/ThemDocGia.php" class="button_page">Thêm đọc giả mới</a>
         <table id='CanChinhDanhSachDocGia' class="table is-striped rounded-md">
           <thead>
             <tr class="TieuDeBang">
@@ -264,6 +321,14 @@
         </table>
         </div>
     </form>
+    <div class="flex justify-center mb-4 mt-10">
+          <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+              Lưu thông tin
+          </button>
+          <button href="DanhSachNhanVien.php"type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+              Quay lại
+          </button>
+        </div>
 </div>
 
 

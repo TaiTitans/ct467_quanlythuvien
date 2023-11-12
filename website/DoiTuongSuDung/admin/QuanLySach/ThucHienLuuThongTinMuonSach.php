@@ -17,7 +17,7 @@
                 history.back();
             </script>";
     }
-    elseif($soBan > 0){
+    elseif($dk1 > 0){
         echo "<script>
                 alert('Không thể lưu vì Bản sách này có có người khác đã mượn. Vui lòng điền lại.');
                 history.back();
