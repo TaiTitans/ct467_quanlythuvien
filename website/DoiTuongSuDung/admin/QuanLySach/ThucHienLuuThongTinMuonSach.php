@@ -8,20 +8,22 @@
     $soBan = $_POST['SoBan'];
     $ngayMuon = $_POST['ngayMuon'];
     $ngayTra = $_POST['ngayTra'];
-    
-    echo '<p> Mã số NV: '.$msnv .'</p>';
-    echo '<p>ID đọc giả: '.$idDocGia .'</p>';
-    echo '<p> Id sách: '.$idSach .'</p>';
-    echo '<p> Số bản: '.$soBan .'</p>';
-    echo '<p> ngày mượn: '.$ngayMuon .'</p>';
-    echo '<p> ngày trả: '.$ngayTra .'</p>';
+
+    $dk1 = KiemTra_SoBanSachDaMuonHayChua($soBan);
 
     if($ngayMuon > $ngayTra){
         echo "<script>
                 alert('Không thể lưu vì ngày mượn lớn hơn ngày trả. Vui lòng điền lại.');
                 history.back();
             </script>";
-    }else{
+    }
+    elseif($dk1 > 0){
+        echo "<script>
+                alert('Không thể lưu vì Bản sách này có có người khác đã mượn. Vui lòng điền lại.');
+                history.back();
+            </script>";
+    }
+    else{
         $ThemMauTin = "INSERT INTO ChiTietMuonSach(ngayMuon,ngayTra,soBan,IDnhanVien,IDdocGia,idSach)
             VALUES('".$ngayMuon."','".$ngayTra."','".$soBan."','".$msnv."','".$idDocGia."','".$idSach."')";
         $CapNhatChiTietSach = "UPDATE ChiTietSach

@@ -283,4 +283,13 @@
         $thucHien = TruyVan($sql);
         return $thucHien;
     }
+
+    //30. kiểm tra bản sách đã có ai mượn hay chưa
+    function KiemTra_SoBanSachDaMuonHayChua($soBan){
+        $sql = "SELECT COUNT(*) dem FROM ChiTietSach 
+            WHERE STT = 1 AND soBan = '$soBan'";
+        $thucHien = TruyVan($sql);
+        return  mysqli_fetch_array($thucHien)['dem'];
+    }
+
 ?>
