@@ -139,7 +139,7 @@
         <div class="py-6 sm:py-8 lg:py-12">
             <div class="bg-cyan-700 rounded-lg shadow-lg p-8 mx-8 mb-5">
                 <h1 class="text-2xl font-bold text-black mb-4- justify-center text-center">
-                GHI NHẬN TÌNH TRẠNG SÁCH
+                MƯỢN SÁCH
                 </h1>
         </div>
 
@@ -159,7 +159,7 @@
         </div>
 
 <div class="p-6 space-y-6"> 
-    <form action="ThucHienLuuThongTinMuonSach.php?MSNV=<?php echo $msnv;?>" method="post" enctype="application/x-www-form-urlencoded">
+    <form action="ThucHienLuuThongTinMuonSach.php?MSNV=<?php echo $msnv;?>&idSach=<?php echo $idSach;?>" method="post" enctype="application/x-www-form-urlencoded">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDnhanVien" class="text-sm font-medium text-gray-900 block mb-2">ID Nhân Viên</label>
@@ -167,7 +167,7 @@
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
-                <input type="text" value='' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+                <input type="text" value='' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" >
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label for="idSach" class="text-sm font-medium text-gray-900 block mb-2">ID Sách</label>
@@ -187,20 +187,6 @@
                   ?>
                 </select>
                 
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label for="TinhTrang" class="text-sm font-medium text-gray-900 block mb-2">Tình trạng sách</label>
-                <select id="TinhTrang" name="TinhTrangSach" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
-                  <?php
-                  
-                    $SoTinhTrang = DS_tinhTrangSach($idSach);
-                    mysqli_next_result($connect);
-                    while($row = mysqli_fetch_array($SoTinhTrang)){
-                      mysqli_next_result($connect);
-                      echo '<option value='.$row['STT'].'>'.$row['TenTinhTrang'].'</option>';
-                    }
-                  ?>
-                </select>
             </div>
             <div class="col-span-6 sm:col-span-3">
                         <label for="date" class="text-sm mb-2 block text-base font-medium text-gray-900">
