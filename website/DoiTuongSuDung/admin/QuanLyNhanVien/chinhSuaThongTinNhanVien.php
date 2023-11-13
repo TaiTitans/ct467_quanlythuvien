@@ -247,8 +247,8 @@
           <button onclick="kiemTraVaGuiMau()" type="submit" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
               Lưu thông tin
           </button>
-          <button href="DanhSachNhanVien.php"type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
-              Quay lại
+          <button type="button" id="luuThongTin" class="bg-blue-700 px-12 py-3 text-sm font-medium text-white shadow-sm border border-violet-600 rounded-lg hover:bg-black hover:text-white active:bg-indigo-500 focus:outline-none focus:ring">
+             <a href="DanhSachNhanVien.php" > Quay lại </a>
           </button>
         </div>
     </form>
