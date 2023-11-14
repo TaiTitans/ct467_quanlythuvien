@@ -50,11 +50,19 @@
     }
   </style>
   <?php
+    session_start();
+
     include('../../../website/php/ConnectMySQL.php');
     include('../../../website/php/CacHamXuLy.php');
     
+    if(empty($_SESSION['user'])){
+      echo '
+          alert("Tài khoản không hợp lệ");
+          location.href="index.php";';
+    }
   ?>
 
+<a href=""></a>
 </head>
 
 <body>
@@ -67,6 +75,7 @@
         userMenu.classList.toggle('hidden');
       });
     });
+    
   </script>
   <div class="header">
     <nav class="bg-gray-800">

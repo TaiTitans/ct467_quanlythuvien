@@ -114,6 +114,15 @@
     <script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script defer src="../../../js/sach/CauHinhBang.js"></script>
     <?php
+    session_start();
+    if(empty($_SESSION['user'])){
+        echo '
+        <script>
+          alert("Tài khoản không hợp lệ");
+          location.href = "../../../../Librarian_Project/code/dist/index.php";
+        </script>';
+    }
+
     include('../../../php/ConnectMySQL.php');
     include('../../../php/CacHamXuLy.php');
     // $msdg = $_GET['MSDG'];
@@ -197,7 +206,7 @@
 
                             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none user-menu hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Đăng xuất</a>
+                                <a href="../../DungChung/dangxuat.php" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Đăng xuất</a>
                             </div>
                         </div>
                     </div>

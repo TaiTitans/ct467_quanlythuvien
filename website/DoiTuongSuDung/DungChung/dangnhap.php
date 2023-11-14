@@ -28,7 +28,7 @@ $TaiKhoanHopLe = 1;
         if ($row['UserRole'] == 0) {
             header('location:../../../Librarian_Project/code/dist/trangchu.php');
         } else  {
-            header('location:../admin/QuanLyNhanVien/TrangChuNhanVien.php?&MSNV=' . $taiKhoan . '');
+            header('location:../admin/QuanLyNhanVien/TrangChuNhanVien.php');
         }
     } 
 
@@ -39,4 +39,14 @@ $TaiKhoanHopLe = 1;
 //             history.back();
 //         </script>";
 // }
+?>
+            <!-- <form action="../admin/QuanLyNhanVien/TrangChuNhanVien.phps" id="ChuyenTrangNV" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="submit" name="MSNV" value='<?php //echo $taiKhoan;?>'>
+            </form>
+            <script>
+                document.addEventListener('DOMContentLoaded', function(){
+                    document.getElementById('ChuyenTrangNV').submit();
+                });
+            </script> -->
+            <?php
 ?>

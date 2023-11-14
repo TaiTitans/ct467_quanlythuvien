@@ -1,12 +1,14 @@
 <?php
+    session_start();
+    $_SERVER['PHP_SELF'];
+
     include('../../php/ConnectMySQL.php');
     include('../../php/CacHamXuLy.php');
 
     $taiKhoan = trim($_POST['taiKhoan']);
     $pw = trim($_POST['password']);
     $TaiKhoanHopLe = 1;
-    echo $taiKhoan;
-    echo $pw;
+
     if($taiKhoan === 'admin'){
         $sql = "SELECT COUNT(*) dem
                 FROM taikhoan
@@ -15,6 +17,8 @@
                 AND UserRole = 0";
         $KT = mysqli_fetch_array(TruyVan($sql));
         if($KT['dem'] > 0){
+            $_SESSION['user'] = $taiKhoan;
+            $_SESSION['pw'] = $pw;
             header('location:../../../Librarian_Project/code/dist/trangchu.php');
         }else{
             $TaiKhoanHopLe = 0;
@@ -27,7 +31,9 @@
                 AND UserRole = 1";
         $KT1 = mysqli_fetch_array(TruyVan($sql1));
         if($KT1['dem'] > 0){
-            header('location:../admin/QuanLyNhanVien/TrangChuNhanVien.php?&MSNV='.$taiKhoan.'');
+            $_SESSION['user'] = $taiKhoan;
+            $_SESSION['pw'] = $pw;
+            header('location:../admin/QuanLyNhanVien/TrangChuNhanVien.php');
         }else{
             $TaiKhoanHopLe = 0;
         }

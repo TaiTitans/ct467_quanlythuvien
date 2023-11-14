@@ -2,6 +2,8 @@
 // dangxuat.php
 session_start();
 
+if (isset($_SESSION['user']))
+    unset($_SESSION['user']);
 // Hủy session
 session_destroy();
 
@@ -9,5 +11,5 @@ session_destroy();
 setcookie("user", "", time() - 1, "/");
 
 // Chuyển hướng người dùng về trang đăng nhập
-header("location:../../../Librarian_Project/code/dist/index.html");
+header("location:../../../Librarian_Project/code/dist/index.php");
 ?>

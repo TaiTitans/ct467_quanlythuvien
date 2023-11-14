@@ -71,12 +71,27 @@
           userMenu.classList.toggle('hidden');
         });
       });
+      
     </script>
     <?php
+    session_start();
     include('../../../php/ConnectMySQL.php');
     include('../../../php/CacHamXuLy.php');
-    $msnv = $_GET['MSNV'];
-    $taiKhoan = trim($_POST['taiKhoan']);
+    
+    $msnv = "";
+    
+    //Nếu rong thi thoát
+    if(empty($_SESSION['user'])){
+      echo '
+      <script>
+        alert("Tài khoản không hợp lệ");
+        location.href = "../../../../Librarian_Project/code/dist/index.php";
+      </script>';
+    }else{
+      $msnv = $_SESSION['user'];
+    }
+    
+    //$taiKhoan = trim($_POST['UserID']);
 
     // echo '<div>'.IDnhanVien_NhanVien($msnv)['hoTen'].'</div>';
     ?>
