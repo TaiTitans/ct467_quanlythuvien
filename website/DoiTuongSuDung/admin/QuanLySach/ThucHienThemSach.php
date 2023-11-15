@@ -10,6 +10,7 @@
     $theLoai = $_POST['TheLoaiSach'];
     $moTa = $_POST['MoTaSach'];
     $soLuong = $_POST['soLuong'];
+    $gia = $_POST['giasach'];
 
     // echo"<p>Tên sách: ".$TenSach."</p>";
     // echo"<p>Nhà xuất bản: ".$NhaXuatBan."</p>";
@@ -71,8 +72,8 @@
 
         //Thêm sách mới
         mysqli_next_result($connect);
-        $ThemSach = "INSERT INTO Sach(idSach,tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai) 
-                    VALUES('".$maSachMoi."','".$TenSach."','".$moTa."','".$namXuatBan."','".$idNXB."','".$IDtacGia."','".$theLoai."')";
+        $ThemSach = "INSERT INTO Sach(idSach,tenSach,MoTa,namXuatBan,idNXB,IDtacGia,idTheLoai,gia) 
+                    VALUES('".$maSachMoi."','".$TenSach."','".$moTa."','".$namXuatBan."','".$idNXB."','".$IDtacGia."','".$theLoai."','".$gia."')";
         $thucHien = TruyVan($ThemSach);
 
         //Thực hiện thêm số lượng sách

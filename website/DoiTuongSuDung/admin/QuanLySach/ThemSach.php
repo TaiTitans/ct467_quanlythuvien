@@ -96,6 +96,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <label>Giá sách</label>
+                                <div class="DienThongTin ODienThongTin">
+                                    <input name="giasach" type="text" placeholder="Nhập số giá quyển sách">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2">
                                 <label for="MoTaSach">Mô tả</label>
                                 <div class="ODienThongTin">

@@ -157,6 +157,7 @@
               <th>Thể loại</th>
               <th>Mô tả</th>
               <th>Số lượng sách</th>
+              <th>Giá</th>
               <th>Delete</th>
               <th>Cập nhật</th>
             </tr>
@@ -179,6 +180,7 @@
                                         <td>' . identifyTheLoai($row['idTheLoai'])['TenTheLoai'] . '</td>
                                         <td>' . $row['MoTa'] . '</td>
                                         <td>' . $soLuongSach . '</td>
+                                        <td>' . $row['gia'] . '</td>
                                         <td>
                                             <a href="ThucHienXoaSach.php?IDsach='.$row['idSach'].'" ><i class="fa-solid fa-trash"></i></a>
                                         </td>
@@ -199,6 +201,7 @@
               <th>Thể loại</th>
               <th>Mô tả</th>
               <th>Số lượng sách</th>
+              <th>Giá</th>
               <th>Delete</th>
               <th>Cập nhật</th>
             </tr>
