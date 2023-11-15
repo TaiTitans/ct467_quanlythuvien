@@ -226,7 +226,7 @@
                     <input type="text" disabled value='<?php echo $TTnv['IDnhanVien']; ?>' name="IDnhanVien" id="IDnhanVien" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
                   </div>
                   <div class="col-span-6 sm:col-span-3">
-                    <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">ID Độc Giả</label>
+                    <label for="IDdocGia" class="text-sm font-medium text-gray-900 block mb-2">Giá sách</label>
                     <input type="text" value='' name="IDdocGia" id="IDdocGia" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="">
                   </div>
                   <div class="col-span-6 sm:col-span-3">

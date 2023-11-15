@@ -11,15 +11,15 @@
     $moTa = $_POST['MoTaSach'];
     $soLuong = $_POST['soLuong'];
 
-    echo"<p>Tên sách: ".$TenSach."</p>";
-    echo"<p>Nhà xuất bản: ".$NhaXuatBan."</p>";
-    echo"<p>Năm xuất bản: ".$namXuatBan."</p>";
-    echo"<p>Tác giả: ".$tacGia."</p>";
-    echo"<p>Thể loại: ".$theLoai."</p>";
-    echo"<p>Mô tả: ".$moTa."</p>";
-    echo"<p>Số lượng: ".$soLuong."</p>";
+    // echo"<p>Tên sách: ".$TenSach."</p>";
+    // echo"<p>Nhà xuất bản: ".$NhaXuatBan."</p>";
+    // echo"<p>Năm xuất bản: ".$namXuatBan."</p>";
+    // echo"<p>Tác giả: ".$tacGia."</p>";
+    // echo"<p>Thể loại: ".$theLoai."</p>";
+    // echo"<p>Mô tả: ".$moTa."</p>";
+    // echo"<p>Số lượng: ".$soLuong."</p>";
 
-    echo "<p>Thấy tác giả: ".Find_TenTacGia($tacGia)."</p>";
+    // echo "<p>Thấy tác giả: ".Find_TenTacGia($tacGia)."</p>";
 
     //1.Nếu tìm không thấy tác giả thì tạo tác giả mới
     if(Find_TenTacGia($tacGia) < 1){
@@ -48,13 +48,13 @@
     //Lấy Thông tin
     $layIDtacGiaQuaTen = "CALL Find_Name_TacGia('".$tacGia."')";
     $IDtacGia = mysqli_fetch_array(TruyVan($layIDtacGiaQuaTen))['IDTacGia'];
-    echo"<p>ID tác giả: ".$IDtacGia."</p>";
+    //echo"<p>ID tác giả: ".$IDtacGia."</p>";
     
     mysqli_next_result($connect); //là một hàm trong PHP dùng để chuẩn bị kết quả tiếp theo từ truy vấn đa (multi-query)
     
     $layThongTinNXB = "CALL qlthuvien.Find_Name_NhaXuatBan('".$NhaXuatBan."')";
     $idNXB = mysqli_fetch_array(TruyVan($layThongTinNXB))['idNXB'];
-    echo"<p>ID nhà xuất bản: ".$idNXB ."</p>";
+    //echo"<p>ID nhà xuất bản: ".$idNXB ."</p>";
 
     
     mysqli_next_result($connect);
@@ -66,8 +66,8 @@
         $ThucHien3 = mysqli_fetch_array(TruyVan($LayIDsachCuoi));
         $maSachMoi = IncreaseIDIndex($ThucHien3['idSach']);
         
-        echo"<p>Mã sách cũ: ".trim($ThucHien3['idSach'])."</p>";
-        echo"<p>Mã sách mới: ".$maSachMoi."</p>";
+        //echo"<p>Mã sách cũ: ".trim($ThucHien3['idSach'])."</p>";
+        //echo"<p>Mã sách mới: ".$maSachMoi."</p>";
 
         //Thêm sách mới
         mysqli_next_result($connect);
@@ -98,12 +98,12 @@
         }
         echo "<script>
                 alert('Thêm sách thành công');
-                history.back();
+                window.history.go(-2);
             </script>";
     }else{
         echo "<script>
                 alert('Đã tồn tại sách này rồi không thể thêm');
-                history.back();
+                window.history.go(-2);
             </script>";
     }
 

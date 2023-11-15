@@ -180,7 +180,7 @@
                                         <td>' . $row['MoTa'] . '</td>
                                         <td>' . $soLuongSach . '</td>
                                         <td>
-                                            <a href="###" ><i class="fa-solid fa-trash"></i></a>
+                                            <a href="ThucHienXoaSach.php?IDsach='.$row['idSach'].'" ><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                         <td>
                                             <a href="ChinhSuaSach.php?ID=' . $row['idSach'] . '"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -188,7 +188,7 @@
                                     </tr>';
             }
             ?>
-          </tbody>
+          </tbody> 
           <tfoot>
             <tr class="TieuDeBang">
               <th>ID sách</th>

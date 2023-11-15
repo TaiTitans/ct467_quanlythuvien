@@ -271,8 +271,10 @@
                                 $hotenNV = IDnhanVien_NhanVien($row['IDnhanVien'])['hoTen'];
                                 mysqli_next_result($connect);
                                 $hotenDG = idDocGia_DocGia($row['IDdocGia'])['hoTen'];
-                                $Tre = 0;//DoChechLechNgayTra($row['soBan'])['doChenhLech'] ?? 0;
-                                // mysqli_next_result($connect);
+                                
+                                mysqli_next_result($connect);
+                                $Tre = DoChechLechNgayTra($row['soBan']);
+                                mysqli_next_result($connect);
 
                                 echo '<tr>';
                                 echo    '<td>'.$row['soBan'].'</td>';

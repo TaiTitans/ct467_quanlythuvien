@@ -313,9 +313,9 @@
 
     //33. Tính độ chênh lệch giữa ngày hiện tại và ngày trả của bản sách
     function DoChechLechNgayTra($soBan){
-        $sql = "SELECT  DATEDIFF(CURDATE(), (SELECT ngayTra FROM ChiTietMuonSach WHERE soban = '$soBan' LIMIT 1)) AS Do_chenh_lech";
+        $sql = "SELECT qlthuvien.Tinh_do_chenh_lech_ngay($soBan) AS DoChenhLenh";
         $thucHien = TruyVan($sql);        
-        return mysqli_fetch_array($thucHien)['Do_chenh_lech'];
+        return mysqli_fetch_array($thucHien)['DoChenhLenh'];
     }
 
     //34. Lấy số lượng sách
@@ -346,6 +346,16 @@
     //34. Lấy số lượng Đọc giả
     function SoLuongDocGia(){
         $sql = "SELECT COUNT(*) dem FROM docgia";
+        $thucHien = TruyVan($sql);        
+        return mysqli_fetch_array($thucHien)['dem'];
+    }
+
+    //35. Kiểm tra xem quyển sách có đọc giả mượn hay chưa
+    function KiemTraSachCoDuocMuonHayKhong($idsach){
+        $sql = "SELECT COUNT(*) dem 
+                FROM Sach INNER JOIN ChiTietSach ct 
+                ON Sach.idSach = ct.idSach
+                WHERE STT = 1 AND ct.idSach = '$idsach'";
         $thucHien = TruyVan($sql);        
         return mysqli_fetch_array($thucHien)['dem'];
     }
