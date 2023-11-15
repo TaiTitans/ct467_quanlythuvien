@@ -150,6 +150,12 @@
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="name">
+            Giá sách
+          </label>
+          <input type="text" name="GiaSach" value="<?php echo $TTsach['gia']; ?>">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="name">
             Số lượng sách
           </label>
           <input type="text" name="SoLuongSach" value=" <?php mysqli_next_result($connect);
@@ -250,13 +256,7 @@
     </div>
     </td>
     </tr>
-    <tr>
-      <td colspan="2">
-        <p>Mô tả</p>
-        <textarea name="MoTa" cols="30" rows="10"> <?php echo $TTsach['MoTa']; ?>
-                                </textarea>
-      </td>
-    </tr>
+
     </table>
     </form>
     </div>

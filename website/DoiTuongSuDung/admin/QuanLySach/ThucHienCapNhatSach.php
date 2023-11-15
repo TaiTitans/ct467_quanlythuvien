@@ -10,6 +10,7 @@
     $IDTacGia = $_POST['IDTacGia'];
     $idTheLoai = $_POST['idTheLoai'];
     $moTa = $_POST['MoTa'];
+    $gia = $_POST['GiaSach'];
     $soLuongSachMoi = $_POST['SoLuongSach'];
     $soLuongHienTai = ID_SoLuongSach($maSachHienTai);
     // echo '<p>So luong hien tai: '.$soLuongHienTai.'</p>';
@@ -20,7 +21,8 @@
             namXuatBan = '$Nam', 
             idNXB = '$NXB', 
             IDtacGia = '$IDTacGia', 
-            idTheLoai = '$idTheLoai'
+            idTheLoai = '$idTheLoai',
+            gia = '$gia'
         WHERE idSach = '$idsach'";
     mysqli_next_result($connect);
     TruyVan($CauLenhUpload);
