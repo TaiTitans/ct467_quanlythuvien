@@ -143,7 +143,7 @@
           😊
       </div>
             <div class="bg-gray-200 rounded-lg mt-10 pb-2 px-2 mx-10 layout_main">
-                <a href="./ThucHienThemNhanVien.php" class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline themdocgia_button">Thêm Nhân Viên</a>
+                <a href="DangKyTaiKhoan.html" class="mt-2 ml-2 inline-block my-2.5 px-12 py-3 text-sm font-medium text-white bg-blue-600 border border-violet-600 rounded-lg active:text-violet-500 hover:bg-transparent hover:text-black focus:outline-none focus:ring no-underline themdocgia_button">Thêm Nhân Viên</a>
                 <table id="CanChinhDanhNhanVien">
                     <thead>
                         <tr class="TieuDeBang">

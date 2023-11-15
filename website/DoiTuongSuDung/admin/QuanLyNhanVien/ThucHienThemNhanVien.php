@@ -28,5 +28,8 @@
     $ThucHIen2 = TruyVan($SQLtk);
 
     //Thoát
-    ThucHienThanhCong();
+    echo "<script>
+                alert('Thêm nhân viên thành công');
+                window.history.go(-2);
+            </script>";
 ?>
