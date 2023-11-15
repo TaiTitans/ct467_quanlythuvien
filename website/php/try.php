@@ -12,11 +12,13 @@
     // }
     // echo '</select>';
 
-    $sql = "SELECT *
-            FROM ChiTietSach 
-            WHERE idSach = 'S72' AND STT = '0'
-            LIMIT 5 ";
-    for($i= 0; $i < 5; $i++){
-            
+    $sql = "SELECT * FROM phiMuon";
+    $chay1 = TruyVan($sql);
+    while($row = mysqli_fetch_array($chay1)){
+        echo '<p>'.$row['Phi'].'</p>';
+        $phi = $row['Phi'];
+        $id = $row['idSach'];
+        $up = "UPDATE Sach SET gia = '$phi' WHERE idSach = '$id'";
+        TruyVan($up);
     }
 ?>
