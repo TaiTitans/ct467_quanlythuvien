@@ -231,7 +231,7 @@
                       Ngày Trả
                     </label>
 
-                    <input type="date" value='' name="ngayTra" id="ngayTra" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
+                    <input type="date" value='' required name="ngayTra" id="ngayTra" <input type="date" name="date" id="date" class="w-full rounded-lg border border-[#e0e0e0] bg-white p-2.5 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md shadow-sm" />
                   </div>
 
                 </div>
@@ -269,7 +269,7 @@
                                           <td>' . $row['SDT'] . '</td>';
                       ?>
                         <td>
-                          <input type="radio" name="IDdocGia" id="NutChonDocGia" value="<?php echo $idDocGia; ?>">
+                          <input type="radio" name="IDdocGia" id="NutChonDocGia" value="<?php echo $idDocGia; ?>" required>
                         </td>
                       <?php
                         echo '</tr>';
